@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00742D</color>
+    <color name="colorPrimaryDark">#035C25</color>
+    <color name="colorAccent">#A51016</color>
+    <color name="colorBackGround">#FFFFFF</color>
+
+
+    <color name="verde_logo_lfa">#00742D</color>
+    <color name="verde_logo_lfa_dark">#035C25</color>
+    <color name="rojo_logo_lfa">#A51016</color>
+
+
+</resources>

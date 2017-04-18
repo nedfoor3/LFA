@@ -1,0 +1,567 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/horizontalScrollView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_grupo_suerox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GRUPO SUEROX" />
+
+            <TableLayout
+                android:id="@+id/tabla_grupo_suerox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black">
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="6dp"
+                        android:paddingRight="4dp"
+                        android:text="NO."
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="Equipo"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="JJ"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="JG"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="JP"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="JE"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="PTJE"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="P+"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="P-"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="DIF"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="AVG"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="6dp"
+                        android:text="  "
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="1" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/team_mote_name_mayas" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="7" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="6" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="1" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="0" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text=".857" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="256" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="136" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="120" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="2.133" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="2" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/team_mote_name_eagles" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="7" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="4" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="3" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="0" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text=".571" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="159" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="150" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="9" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="1.06" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="3" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/team_mote_name_condors" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="7" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="2" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="5" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="0" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text=".285" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="110" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="210" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="-100" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="0.523" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/tv_grupo_under_armour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GRUPO UNDER ARMOUR" />
+
+            <TableLayout
+                android:id="@+id/tabla_grupo_under_armour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black">
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="6dp"
+                        android:paddingRight="4dp"
+                        android:text="Lugar"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="Equipo"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="JJ"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="JG"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="JP"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="JE"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="PTJE"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="P+"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="P-"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="DIF"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="AVG"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="6dp"
+                        android:text="  "
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="1" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/team_mote_name_raptors" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="7" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="5" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="2" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="0" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text=".714" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="160" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="121" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="39" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="1.322" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="2" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/team_mote_name_dinos" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="7" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="2" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="5" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="0" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text=".285" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="117" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="137" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="-20" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text=".854" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="3" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/team_mote_name_fundidores" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="7" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="2" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="5" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="0" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text=".285" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="112" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="146" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="-34" />
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="0.767" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</HorizontalScrollView>

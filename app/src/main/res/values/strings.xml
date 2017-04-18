@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">LFA</string>
+
+    <!-- TEAMS -->
+    <string name="team_mote_name_raptors" translatable="false">Raptors</string>
+    <string name="team_mote_name_condors" translatable="false">Condors</string>
+    <string name="team_mote_name_eagles" translatable="false">Eagles</string>
+    <string name="team_mote_name_mayas" translatable="false">Mayas</string>
+    <string name="team_mote_name_dinos" translatable="false">Dinos</string>
+    <string name="team_mote_name_fundidores" translatable="false">Fundidores</string>
+
+    <!-- TEAM GROUPS -->
+    <string name="grupo_suerox">SUEROX GROUP</string>
+    <string name="grupo_under_armour">UNDER ARMOUR GROUP</string>
+
+    <!-- Menu Strings -->
+    <string name="menu_news">News</string>
+    <string name="menu_teams">Teams</string>
+    <string name="menu_standings">Standings</string>
+    <string name="menu_settings">Settings</string>
+
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+
+    <!-- UTILS -->
+    <string name="days">DAYS</string>
+    <string name="time">HRS</string>
+    <string name="minuts">MINS</string>
+    <string name="seconds">SECS</string>
+
+</resources>

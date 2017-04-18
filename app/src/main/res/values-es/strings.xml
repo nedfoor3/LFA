@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">LFA</string>
+
+    <!-- TEAM GROUPS -->
+    <string name="grupo_suerox">GRUPO SUEROX</string>
+    <string name="grupo_under_armour">GRUPO UNDER ARMOUR</string>
+
+    <!-- Menu Strings -->
+    <string name="menu_news">Noticias</string>
+    <string name="menu_teams">Equipos</string>
+    <string name="menu_settings">Ajustes</string>
+
+    <!-- UTILS -->
+
+    <string name="days">D\u00EDAS</string>
+    <string name="time">HRS</string>
+    <string name="minuts">MINS</string>
+    <string name="seconds">SEGS</string>
+
+</resources>
