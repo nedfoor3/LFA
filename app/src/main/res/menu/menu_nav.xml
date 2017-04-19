@@ -10,7 +10,7 @@
 
         <item
             android:id="@+id/menu_teams"
-            android:icon="@drawable/ic_football_helmet_white_24dp"
+            android:icon="@drawable/ic_player"
             android:title="@string/menu_teams" />
 
         <item

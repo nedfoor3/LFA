@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
         // Menu Presenter Logic
         mMenuPresenter = new MenuPresenterImpl(this);
         mMenuPresenter.onClickOptionItemMenu(lateralMenu, drawerLayoutMain);
+        drawerLayoutMain.setScrimColor(getResources().getColor(R.color.transparente));
 
         // Main Activity Presenter Logic
         mMainActivityPresenter = new MainViewPresenterImpl(this, recyclerviewNews);

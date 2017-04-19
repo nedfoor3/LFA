@@ -2,7 +2,11 @@
 <resources>
     <color name="negro">#000000</color>
     <color name="blanco">#FFFFFF</color>
-    <color name="blanco_transparente">#D1FFFFFF</color>
+    <color name="transparente">#00ffffff</color>
+
+    <color name="colorPrimary">#06753c</color>
+    <color name="colorPrimaryDark">#1b5e20</color>
+    <color name="colorAccent">#a21e22</color>
 
     <color name="gris">#333333</color>
     <color name="verde_lfa">#06753c</color>
