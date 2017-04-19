@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00742D</color>
     <color name="colorPrimaryDark">#035C25</color>
-    <color name="colorAccent">#A51016</color>
-    <color name="colorBackGround">#FFFFFF</color>
 
+    <color name="negro">#000000</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="blanco_transparente">#D1FFFFFF</color>
 
-    <color name="verde_logo_lfa">#00742D</color>
-    <color name="verde_logo_lfa_dark">#035C25</color>
-    <color name="rojo_logo_lfa">#A51016</color>
+    <color name="gris">#333333</color>
+    <color name="verde_lfa">#06753c</color>
+    <color name="rojo_lfa">#a21e22</color>
+    <color name="rosa_cancer">#ec008b</color>
 
+    <color name="primary_eagles">#da291c</color>
+    <color name="secondary_eagles">#231f20</color>
+    <color name="third_eagles">#ffffff</color>
+    <color name="fourth_eagles">#dbdcde</color>
+
+    <color name="primary_condors">#c6b156</color>
+    <color name="secondary_condors">#231f20</color>
+    <color name="third_condors">#ffffff</color>
+
+    <color name="primary_mayas">#002748</color>
+    <color name="secondary_mayas">#d1d2d4</color>
+    <color name="third_mayas">#ffffff</color>
+
+    <color name="primary_raptors">#115942</color>
+    <color name="secondary_raptors">#e0e721</color>
+    <color name="third_raptors">#ffffff</color>
+    <color name="fourth_raptors">#00160b</color>
+
+    <color name="primary_fundidores">#f3ac1c</color>
+    <color name="secondary_fundidores">#231f20</color>
+    <color name="third_fundidores">#ffffff</color>
+    <color name="fourth_fundidores">#cfdcc7</color>
+    
+    <color name="primary_dinos">#5f259f</color>
+    <color name="secondary_dinos">#000000</color>
+    <color name="third_dinos">#009d9d</color>
+    <color name="fourth_dinos">#cfdcc7</color>
+    <color name="fifth_dinos">#ffffff</color>
 
 </resources>
