@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimaryDark">#035C25</color>
-
     <color name="negro">#000000</color>
     <color name="blanco">#FFFFFF</color>
     <color name="blanco_transparente">#D1FFFFFF</color>
 
     <color name="gris">#333333</color>
     <color name="verde_lfa">#06753c</color>
+    <color name="verde_lfa_Dark">#1b5e20</color>
     <color name="rojo_lfa">#a21e22</color>
     <color name="rosa_cancer">#ec008b</color>
 
