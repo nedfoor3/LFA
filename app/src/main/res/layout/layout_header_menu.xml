@@ -5,42 +5,36 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-    android:background="@color/verde_lfa"
+    android:background="@color/negro"
     android:paddingTop="25dp">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/escudo_condors"
-            android:background="@color/negro"
             android:layout_weight="1"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/escudo_dinos"
-            android:background="@color/negro"
             android:layout_weight="1"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/escudo_eagles"
-            android:background="@color/negro"
             android:layout_weight="1"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/escudo_fundidores"
-            android:background="@color/negro"
             android:layout_weight="1"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/escudo_mayas"
-            android:background="@color/negro"
             android:layout_weight="1"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/escudo_raptors"
-            android:background="@color/negro"
             android:layout_weight="1"/>
     </LinearLayout>

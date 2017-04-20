@@ -11,6 +11,8 @@ import android.widget.Toast;
 import mx.lfa.com.rawrstudio.MainActivity;
 import mx.lfa.com.rawrstudio.R;
 import mx.lfa.com.rawrstudio.interfaces.Menu.MenuPresenter;
+import mx.lfa.com.rawrstudio.views.AcercaDe;
+import mx.lfa.com.rawrstudio.views.Patrocinadores;
 import mx.lfa.com.rawrstudio.views.SettingsActivity;
 import mx.lfa.com.rawrstudio.views.StandingsActivity;
 
@@ -67,6 +69,18 @@ public class MenuPresenterImpl implements MenuPresenter {
                         break;
                     case R.id.menu_standings:
                         intent = new Intent(view, StandingsActivity.class);
+
+                        view.startActivity(intent);
+                        activityTransaction = true;
+                        break;
+                    case R.id.menu_sponsors:
+                        intent = new Intent(view, Patrocinadores.class);
+
+                        view.startActivity(intent);
+                        activityTransaction = true;
+                        break;
+                    case R.id.menu_about:
+                        intent = new Intent(view, AcercaDe.class);
 
                         view.startActivity(intent);
                         activityTransaction = true;

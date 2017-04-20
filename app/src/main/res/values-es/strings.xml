@@ -1,6 +1,23 @@
 <resources>
     <string name="app_name">LFA</string>
 
+    <!-- usar en caso de acento o ñ: -->
+    <!--Á	\u00C1	A con acento
+        á	\u00E1	a con acento
+        É	\u00C9	E con acento
+        é	\u00E9	e con acento
+        Í	\u00CD	I con acento
+        í	\u00ED	i con acento
+        Ó	\u00D3	O con acento
+        ó	\u00F3	o con acento
+        Ú	\u00DA	U con acento
+        ú	\u00FA	u con acento
+        Ü	\u00DC	U con dieress
+        ü	\u00FC	u con dieresis
+        ñ 	\u00F1	n con tilde
+        Ñ   \u00D1  N con tilde -->
+    <!-- usar en caso de acento o ñ: -->
+
     <!-- TEAM GROUPS -->
     <string name="grupo_suerox">GRUPO SUEROX</string>
     <string name="grupo_under_armour">GRUPO UNDER ARMOUR</string>
@@ -8,6 +25,8 @@
     <!-- Menu Strings -->
     <string name="menu_news">Noticias</string>
     <string name="menu_teams">Equipos</string>
+    <string name="menu_patrocinadores">Patrocinadores</string>
+    <string name="menu_acerca_de">Acerca de...</string>
     <string name="menu_settings">Ajustes</string>
 
     <!-- UTILS -->
@@ -16,5 +35,17 @@
     <string name="time">HRS</string>
     <string name="minuts">MINS</string>
     <string name="seconds">SEGS</string>
+
+    <!-- preferencias -->
+    <string name="idoma">Idioma</string>
+    <string name="elegir_idoma">Elegir idioma</string>
+    <string-array name="idiomas_disponibles">
+        <item>English</item>
+        <item>Espa\u00F1ol</item>
+    </string-array>
+    <string-array name="orden_idiomas_disponibles">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 
 </resources>

@@ -21,9 +21,19 @@
     </group>
 
     <group android:id="@+id/secundary_options">
+
+        <item android:id="@+id/menu_sponsors"
+            android:icon="@drawable/ic_sponsor"
+            android:title="@string/menu_patrocinadores" />
+
+        <item android:id="@+id/menu_about"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="@string/menu_acerca_de"/>
+
         <item android:id="@+id/menu_config"
             android:icon="@drawable/ic_settings_white_24dp"
             android:title="@string/menu_settings"/>
+
     </group>
 
 </menu>

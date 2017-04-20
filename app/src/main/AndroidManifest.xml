@@ -21,7 +21,9 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".views.SettingsActivity" />
-        <activity android:name=".views.StandingsActivity"></activity>
+        <activity android:name=".views.StandingsActivity" />
+        <activity android:name=".views.Patrocinadores" />
+        <activity android:name=".views.AcercaDe"></activity>
     </application>
 
 </manifest>
