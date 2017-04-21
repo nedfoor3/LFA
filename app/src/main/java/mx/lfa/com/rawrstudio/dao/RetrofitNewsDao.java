@@ -2,10 +2,10 @@ package mx.lfa.com.rawrstudio.dao;
 
 import java.util.List;
 
+import mx.lfa.com.rawrstudio.models.MediaData;
 import mx.lfa.com.rawrstudio.models.News;
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -23,4 +23,7 @@ public interface RetrofitNewsDao {
 
     @GET("posts")
     Call<List<News>> getOldNews(@Query("page") int page);
+
+    @GET("media")
+    Call<List<MediaData>> getMediaData(@Query("idMedia") int idMedia);
 }

@@ -29,4 +29,14 @@ public interface MainActivityView {
      */
     void hideTimer();
 
+    /**
+     * Show cant load error.
+     */
+    void showCantLoadError();
+
+    /**
+     * Hide cant load error.
+     */
+    void hideCantLoadError();
+
 }

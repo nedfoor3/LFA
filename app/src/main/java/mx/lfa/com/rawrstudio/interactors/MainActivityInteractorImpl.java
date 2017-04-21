@@ -1,6 +1,7 @@
 package mx.lfa.com.rawrstudio.interactors;
 
-import android.util.Log;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,6 +22,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivityInteractorImpl implements MainActivityInteractor {
 
     private static final int HTTP_SUCCESS_RESPONCE = 200;
+    private SharedPreferences sharedPreferences;
+
+    private Context context;
+
+    public MainActivityInteractorImpl(Context cont) {
+        this.context = cont;
+
+        this.sharedPreferences = cont.getSharedPreferences(Strings.PREFS_NAME, 0);
+    }
+
     /**
      * Gets recent news.
      *
@@ -45,6 +56,9 @@ public class MainActivityInteractorImpl implements MainActivityInteractor {
 
                 Call<List<News>> mCall = call.clone();
                 mListNews = mCall.execute().body();
+
+                sharedPreferences.edit().putInt(Strings.PREFS_NEWS_ID, mListNews.get(0).getId()).commit();
+
             } else {
                 mListNews = null;
             }

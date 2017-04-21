@@ -1,7 +1,6 @@
 package mx.lfa.com.rawrstudio.adapters;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,6 +63,8 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         String titulo;
+        String text;
+        String date;
         Integer id;
 
         if (CLASSNAME_WITHOUT_IMAGE_VIEWHOLDER.compareTo(holder.getClass().getSimpleName()) == 0){
@@ -77,14 +78,12 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             titulo = mListNews.get(position).getTitle().getRendered();
             mHolder.setTitle(titulo);
 
-                /*id = mListNews.get(position).getId();
-                mHolder.setId(id);
+            text = mListNews.get(position).getContent().getRendered();
+            mHolder.setText(text);
 
+            date = mListNews.get(position).getDate();
+            mHolder.setDate(date);
 
-                text = mListNews.get(position).getContent().getRendered();
-                Log.v("text", text);
-                mHolder.setText(text);*/
-            //if (mListNews.get(position).getBetter_featured_image() != null) {
             String urlImage = mListNews.get(position).getBetter_featured_image().getSource_url();
             mHolder.setFeatureImage(urlImage);
         }

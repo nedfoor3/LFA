@@ -1,16 +1,19 @@
 package mx.lfa.com.rawrstudio.presenters;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.Nullable;
-import android.view.View;
-import android.widget.Toast;
 
-import java.util.Map;
-import java.util.Set;
+import java.util.Calendar;
 
+import mx.lfa.com.rawrstudio.broadcastreceivers.NewsReceiver;
 import mx.lfa.com.rawrstudio.interfaces.SplashScreenActivity.SplashScreenPresenter;
+import mx.lfa.com.rawrstudio.utils.Strings;
+
+import static android.content.Context.ALARM_SERVICE;
 
 /**
  * Created by Ricardo Rodriguez on 4/17/2017.
@@ -19,18 +22,21 @@ import mx.lfa.com.rawrstudio.interfaces.SplashScreenActivity.SplashScreenPresent
 public class SplashScreenPresenterImpl implements SplashScreenPresenter {
 
     private static final String FIRST_RUN = "firstRun";
-    private static final String PREFS_NAME = "mx.lfa";
+
     private SharedPreferences sharedPreferences = null;
     private Activity activity;
-    boolean firstLaunch = false;
+    private Intent intent;
+    private PendingIntent pendingIntent;
+    private AlarmManager alarmManager;
 
     public SplashScreenPresenterImpl(Activity activity) {
         this.activity = activity;
 
-        this. sharedPreferences = activity.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+
+        this.sharedPreferences = activity.getSharedPreferences(Strings.PREFS_NAME, Context.MODE_PRIVATE);
 
         boolean flag = isFirstLaunch();
-        Toast.makeText(activity, "Flag: " + flag, Toast.LENGTH_SHORT).show();
+        startAlertAtParticularTime();
     }
 
     /**
@@ -53,10 +59,25 @@ public class SplashScreenPresenterImpl implements SplashScreenPresenter {
     }
 
     /**
-     * Push notification settings.
+     * Start alert at particular time.
      */
     @Override
-    public void pushNotificationSettings() {
+    public void startAlertAtParticularTime() {
+        // alarm first vibrate at 14 hrs and 40 min and repeat itself at ONE_HOUR interval
+
+        intent = new Intent(activity, NewsReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(
+                activity.getApplicationContext(), 280192, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 12);
+        calendar.set(Calendar.MINUTE, 00);
+
+        alarmManager = (AlarmManager) activity.getSystemService(ALARM_SERVICE);
+
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent);
 
     }
 }

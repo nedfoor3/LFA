@@ -31,6 +31,14 @@
     <string name="minuts">MINS</string>
     <string name="seconds">SECS</string>
 
+    <string name="push_notification_title">Liga de Futbol Americano</string>
+    <string name="push_notificatio_subtitle_first">You have: </string>
+    <string name="push_notificatio_subtitle_second">news to read.</string>
+    <string name="try_again">Try Again</string>
+
+    <string name="empty"></string>
+
+
     <!-- preferencias -->
     <string name="idoma">Language</string>
     <string name="elegir_idoma">Choose language</string>

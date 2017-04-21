@@ -1,16 +1,15 @@
 package mx.lfa.com.rawrstudio.adapters;
 
 import android.content.Context;
+import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import mx.lfa.com.rawrstudio.R;
-import mx.lfa.com.rawrstudio.views.Patrocinadores;
 
 /**
  * Created by Tonatiuh on 20/04/2017.
@@ -21,7 +20,7 @@ public class ViewPagerAdapter extends PagerAdapter {
     LayoutInflater inflater;
     Context context;
 
-    public ViewPagerAdapter(Patrocinadores patrocinadores, int[] img){
+    public ViewPagerAdapter(Context patrocinadores, int[] img) {
         this.context = patrocinadores;
         this.images = img;
     }
@@ -29,11 +28,6 @@ public class ViewPagerAdapter extends PagerAdapter {
     @Override
     public int getCount() {
         return images.length;
-    }
-
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return view==((RelativeLayout)object);
     }
 
     @Override
@@ -49,6 +43,21 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        ((ViewPager)container).removeView((RelativeLayout)object);
+        container.removeView((View) object);
     }
+
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
+        return view.equals(object);
+    }
+
+    @Override
+    public void restoreState(Parcelable state, ClassLoader loader) {
+    }
+
+    @Override
+    public Parcelable saveState() {
+        return null;
+    }
+
 }

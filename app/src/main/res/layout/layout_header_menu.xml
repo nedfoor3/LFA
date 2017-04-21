@@ -1,40 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:scaleType="centerCrop"
+        android:src="@color/colorPrimaryDark" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_gravity="bottom|center_horizontal"
         android:gravity="center"
-    android:background="@color/negro"
-    android:paddingTop="25dp">
+        android:orientation="horizontal">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/escudo_condors"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+
+            android:src="@drawable/escudo_condors" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/escudo_dinos"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+
+            android:src="@drawable/escudo_dinos" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/escudo_eagles"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+
+            android:src="@drawable/escudo_eagles" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/escudo_fundidores"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+
+            android:src="@drawable/escudo_fundidores" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/escudo_mayas"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+
+            android:src="@drawable/escudo_mayas" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/escudo_raptors"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+
+            android:src="@drawable/escudo_raptors" />
     </LinearLayout>
+
+</FrameLayout>

@@ -1,7 +1,6 @@
 package mx.lfa.com.rawrstudio.asyncs;
 
 import android.os.AsyncTask;
-import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
@@ -34,7 +33,7 @@ public class GetOldNewsAsync extends AsyncTask<Void, Integer, Boolean> {
 
     @Override
     protected Boolean doInBackground(Void... voids) {
-        MainActivityInteractor mainActivityInteractor = new MainActivityInteractorImpl();
+        MainActivityInteractor mainActivityInteractor = new MainActivityInteractorImpl(mView);
 
         mListNews = mainActivityInteractor.getOldNews(this.page);
 

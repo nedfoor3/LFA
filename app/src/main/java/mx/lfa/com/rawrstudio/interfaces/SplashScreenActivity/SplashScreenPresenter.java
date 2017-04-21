@@ -12,9 +12,10 @@ public interface SplashScreenPresenter {
      */
     boolean isFirstLaunch();
 
+
     /**
-     * Push notification settings.
+     * Start alert at particular time.
      */
-    void pushNotificationSettings();
+    void startAlertAtParticularTime();
 
 }

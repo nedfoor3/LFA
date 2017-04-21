@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start"
-    tools:context="mx.lfa.com.rawrstudio.MainActivity">
+    tools:context="mx.lfa.com.rawrstudio.views.NewsActivity">
 
     <LinearLayout
         android:id="@+id/main_toolbar"
@@ -17,17 +15,14 @@
 
         <include layout="@layout/layout_toolbar" />
 
-        <include
-            android:id="@+id/layout_timer"
-            layout="@layout/layout_timer" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <include
-                layout="@layout/layout_cant_load"
                 android:id="@+id/layout_cant_load"
+                layout="@layout/layout_cant_load"
                 android:visibility="gone" />
 
             <ProgressBar
@@ -39,34 +34,18 @@
                 android:layout_centerVertical="true"
                 android:visibility="gone" />
 
-            <android.support.v4.widget.SwipeRefreshLayout
-                android:id="@+id/swipeContainer"
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="200dp"
+                android:id="@+id/pruebaimagen" />
 
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recyclerview_news"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scrollbars="vertical" />
-
-            </android.support.v4.widget.SwipeRefreshLayout>
-
+            <include
+                android:id="@+id/layout_full_article"
+                layout="@layout/layout_full_article"
+                android:visibility="gone" />
         </RelativeLayout>
 
+
     </LinearLayout>
-
-
-    <android.support.design.widget.NavigationView
-        android:id="@+id/lateral_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:clickable="true"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/layout_header_menu"
-        app:menu="@menu/menu_nav"/>
-
 
 </android.support.v4.widget.DrawerLayout>

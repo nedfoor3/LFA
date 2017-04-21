@@ -4,7 +4,6 @@ import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import mx.lfa.com.rawrstudio.MainActivity;
 import mx.lfa.com.rawrstudio.adapters.NewsAdapter;
@@ -35,7 +34,7 @@ public class GetNewsSwipContainerAsync extends AsyncTask<Void, Integer, Boolean>
     @Override
     protected Boolean doInBackground(Void... voids) {
 
-        MainActivityInteractor interactor = new MainActivityInteractorImpl();
+        MainActivityInteractor interactor = new MainActivityInteractorImpl(mView);
 
         mView.setLisNews(new ArrayList<News>());
         mView.setLisNews(interactor.getRecentNews());
