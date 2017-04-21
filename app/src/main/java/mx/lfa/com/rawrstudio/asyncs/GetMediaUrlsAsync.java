@@ -1,6 +1,7 @@
 package mx.lfa.com.rawrstudio.asyncs;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import mx.lfa.com.rawrstudio.adapters.ImageByUrlAdapter;
 import mx.lfa.com.rawrstudio.interactors.NewsActivityInteractorImpl;
@@ -14,6 +15,7 @@ public class GetMediaUrlsAsync extends AsyncTask<Void, Integer, Boolean> {
 
     private NewsActivity activity;
     private int mIdMedia;
+    private String mUrlFeature;
 
     private String[] imageURls;
 
@@ -23,9 +25,10 @@ public class GetMediaUrlsAsync extends AsyncTask<Void, Integer, Boolean> {
      * @param activity the activity
      * @param idMedia  the id media
      */
-    public GetMediaUrlsAsync(NewsActivity activity, int idMedia) {
+    public GetMediaUrlsAsync(NewsActivity activity, int idMedia, String urlFeature) {
         this.activity = activity;
         this.mIdMedia = idMedia;
+        this.mUrlFeature = urlFeature;
     }
 
     @Override
@@ -35,10 +38,16 @@ public class GetMediaUrlsAsync extends AsyncTask<Void, Integer, Boolean> {
 
     @Override
     protected Boolean doInBackground(Void... voids) {
+
         NewsActivityInteractor newsActivityInteractor = new NewsActivityInteractorImpl(activity);
         activity.setListMedia(newsActivityInteractor.getUrlsMedia(mIdMedia));
 
-        return true;
+        if (activity.getListMedia() != null) {
+            return true;
+        } else {
+            return false;
+
+        }
     }
 
     @Override
@@ -51,12 +60,16 @@ public class GetMediaUrlsAsync extends AsyncTask<Void, Integer, Boolean> {
             imageURls = new String[activity.getListMedia().size()];
 
             for (int i = 0; i < activity.getListMedia().size(); i++) {
+
+                Log.v("URL", activity.getListMedia().get(i).getGuid().getRendered());
                 imageURls[i] = activity.getListMedia().get(i).getGuid().getRendered();
             }
-            activity.getPagerGallery().setAdapter(new ImageByUrlAdapter(activity, imageURls));
 
+        } else {
+            imageURls = new String[]{mUrlFeature};
         }
 
+        activity.getPagerGallery().setAdapter(new ImageByUrlAdapter(activity, imageURls));
     }
 
 

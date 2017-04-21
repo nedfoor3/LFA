@@ -14,8 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.List;
 
 import butterknife.BindView;
@@ -61,6 +59,7 @@ public class NewsActivity extends AppCompatActivity implements ActionbarView, Ne
     private String text;
     private String date;
     private int idMedia;
+    private String mUrlFeature;
 
     private List<MediaData> listMedia;
 
@@ -75,12 +74,12 @@ public class NewsActivity extends AppCompatActivity implements ActionbarView, Ne
         text = extras.getString(Strings.INTENT_NEWS_TEXT);
         date = extras.getString(Strings.INTENT_NEWS_DATE);
         idMedia = extras.getInt(Strings.INTENT_NEWS_ID_MEDIA);
+        mUrlFeature = extras.getString(Strings.INTENT_NEWS_URL_FEAUTRE);
 
         actionbarView = this;
         actionbarView.setToolbarValues();
 
-        newsActivityPresenter = new NewsActivityPresenterImpl(this, idMedia);
-        Glide.with(this).load("http://img001.us.expono.com/100001/100001-1bc30-2d736f_m.jpg").into(pruebaimagen);
+        newsActivityPresenter = new NewsActivityPresenterImpl(this, idMedia, mUrlFeature);
         newsActivityPresenter.loadArticle();
 
 

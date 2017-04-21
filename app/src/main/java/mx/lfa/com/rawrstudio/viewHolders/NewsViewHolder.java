@@ -24,6 +24,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     private String sDate;
     private int idMedia;
     private ImageView mFeatureImage;
+    private String urlFetatureImage;
 
     public NewsViewHolder(View itemView) {
         super(itemView);
@@ -56,10 +57,12 @@ public class NewsViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         intent.putExtra(Strings.INTENT_NEWS_TEXT, sFullText);
         intent.putExtra(Strings.INTENT_NEWS_DATE, sDate);
         intent.putExtra(Strings.INTENT_NEWS_ID_MEDIA, idMedia);
+        intent.putExtra(Strings.INTENT_NEWS_URL_FEAUTRE, urlFetatureImage);
         itemView.getContext().startActivity(intent);
     }
 
     public void setFeatureImage(String UrlFeatureImage) {
         Glide.with(itemView.getContext()).load(UrlFeatureImage).into(mFeatureImage);
+        this.urlFetatureImage = UrlFeatureImage;
     }
 }

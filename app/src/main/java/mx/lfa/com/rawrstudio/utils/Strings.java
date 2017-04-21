@@ -19,4 +19,6 @@ public class Strings {
     public static final String INTENT_NEWS_DATE = "date";
 
     public static final String INTENT_NEWS_ID_MEDIA = "idMedia";
+
+    public static final String INTENT_NEWS_URL_FEAUTRE = "urlFeaturedImage";
 }

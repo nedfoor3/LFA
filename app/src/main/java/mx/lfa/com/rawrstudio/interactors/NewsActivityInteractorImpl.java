@@ -65,7 +65,6 @@ public class NewsActivityInteractorImpl implements NewsActivityInteractor {
                 mMediaData = null;
             }
 
-
         } catch (IOException e) {
             e.printStackTrace();
         }

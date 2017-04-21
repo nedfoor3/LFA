@@ -25,5 +25,5 @@ public interface RetrofitNewsDao {
     Call<List<News>> getOldNews(@Query("page") int page);
 
     @GET("media")
-    Call<List<MediaData>> getMediaData(@Query("idMedia") int idMedia);
+    Call<List<MediaData>> getMediaData(@Query("parent") int idMedia);
 }

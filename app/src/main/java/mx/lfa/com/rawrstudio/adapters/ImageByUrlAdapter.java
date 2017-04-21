@@ -1,6 +1,7 @@
 package mx.lfa.com.rawrstudio.adapters;
 
 import android.content.Context;
+import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -28,25 +29,23 @@ public class ImageByUrlAdapter extends PagerAdapter {
         this.activity = activity;
     }
 
-
     @Override
     public int getCount() {
         return urls.length;
     }
 
-
     @Override
-    public Object instantiateItem(ViewGroup view, int position) {
+    public Object instantiateItem(ViewGroup container, int position) {
         ImageView trailimg;
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View itemView = inflater.inflate(R.layout.item_sponsor, view, false);
-        trailimg = (ImageView) itemView.findViewById(R.id.trailing);
+        View itemView = inflater.inflate(R.layout.pager_image_gallery, container, false);
+        trailimg = (ImageView) itemView.findViewById(R.id.image_gallery);
+        //trailimg.setImageResource(images[position]);
 
         Glide.with(activity).load(urls[position]).into(trailimg);
-        ((ViewPager) view).addView(itemView);
+        ((ViewPager) container).addView(itemView);
         return itemView;
     }
-
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
@@ -55,6 +54,16 @@ public class ImageByUrlAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return false;
+        return view.equals(object);
     }
+
+    @Override
+    public void restoreState(Parcelable state, ClassLoader loader) {
+    }
+
+    @Override
+    public Parcelable saveState() {
+        return null;
+    }
+
 }

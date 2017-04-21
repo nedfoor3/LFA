@@ -84,6 +84,9 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             date = mListNews.get(position).getDate();
             mHolder.setDate(date);
 
+            id = mListNews.get(position).getId();
+            mHolder.setIdMedia(id);
+
             String urlImage = mListNews.get(position).getBetter_featured_image().getSource_url();
             mHolder.setFeatureImage(urlImage);
         }

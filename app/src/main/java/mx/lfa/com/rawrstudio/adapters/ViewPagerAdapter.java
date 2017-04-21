@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
 import mx.lfa.com.rawrstudio.R;
 
 /**
@@ -36,7 +38,9 @@ public class ViewPagerAdapter extends PagerAdapter {
         inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.item_sponsor, container, false);
         trailimg=(ImageView)itemView.findViewById(R.id.trailing);
-        trailimg.setImageResource(images[position]);
+        //trailimg.setImageResource(images[position]);
+
+        Glide.with(context).load(images[position]).into(trailimg);
         ((ViewPager)container).addView(itemView);
         return itemView;
     }

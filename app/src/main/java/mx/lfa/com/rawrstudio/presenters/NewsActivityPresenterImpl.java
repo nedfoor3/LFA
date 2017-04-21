@@ -11,17 +11,17 @@ public class NewsActivityPresenterImpl implements NewsActivityPresenter {
 
     private NewsActivity view;
     private int idMedia;
-
+    private String mUrlFeature;
 
     /**
      * Instantiates a new News activity presenter.
      *
      * @param activity the activity
      */
-    public NewsActivityPresenterImpl(NewsActivity activity, int idMedia) {
-
+    public NewsActivityPresenterImpl(NewsActivity activity, int idMedia, String urlFeature) {
         this.idMedia = idMedia;
         this.view = activity;
+        this.mUrlFeature = urlFeature;
     }
 
 
@@ -38,10 +38,10 @@ public class NewsActivityPresenterImpl implements NewsActivityPresenter {
             view.showArticle();
             view.hideProgress();
 
-            GetMediaUrlsAsync getMediaUrlsAsync = new GetMediaUrlsAsync(view, idMedia);
+            GetMediaUrlsAsync getMediaUrlsAsync = new GetMediaUrlsAsync(view, idMedia, mUrlFeature);
+
+            //probar a que regrese del asynctask
             getMediaUrlsAsync.execute();
-
-
         }
 
     }
