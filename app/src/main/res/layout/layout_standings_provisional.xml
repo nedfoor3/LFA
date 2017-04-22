@@ -34,7 +34,7 @@
                         android:gravity="center"
                         android:paddingLeft="6dp"
                         android:paddingRight="4dp"
-                        android:text="NO."
+                        android:text="Lugar"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />

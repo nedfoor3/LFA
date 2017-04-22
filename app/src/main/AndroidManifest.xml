@@ -23,15 +23,14 @@
         <activity android:name=".views.SettingsActivity" />
         <activity android:name=".views.StandingsActivity" />
         <activity android:name=".views.Patrocinadores" />
-        <activity android:name=".views.AcercaDe"></activity>
+        <activity android:name=".views.AcercaDe" />
 
         <receiver android:name=".broadcastreceivers.NewsReceiver" />
 
         <service android:name=".services.NewsNotificationService" />
 
-        <activity android:name=".views.NewsActivity"></activity>
-
-
+        <activity android:name=".views.NewsActivity" />
+        <activity android:name=".views.Equipos"></activity>
     </application>
 
 </manifest>
