@@ -30,7 +30,8 @@
         <service android:name=".services.NewsNotificationService" />
 
         <activity android:name=".views.NewsActivity" />
-        <activity android:name=".views.Equipos"></activity>
+        <activity android:name=".views.Equipos" />
+        <activity android:name=".views.DetalleEquipos"></activity>
     </application>
 
 </manifest>

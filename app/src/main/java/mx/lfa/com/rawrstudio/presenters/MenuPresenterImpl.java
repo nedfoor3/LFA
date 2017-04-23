@@ -12,6 +12,7 @@ import mx.lfa.com.rawrstudio.MainActivity;
 import mx.lfa.com.rawrstudio.R;
 import mx.lfa.com.rawrstudio.interfaces.Menu.MenuPresenter;
 import mx.lfa.com.rawrstudio.views.AcercaDe;
+import mx.lfa.com.rawrstudio.views.Equipos;
 import mx.lfa.com.rawrstudio.views.Patrocinadores;
 import mx.lfa.com.rawrstudio.views.SettingsActivity;
 import mx.lfa.com.rawrstudio.views.StandingsActivity;
@@ -63,8 +64,9 @@ public class MenuPresenterImpl implements MenuPresenter {
                         activityTransaction = true;
                         break;
                     case R.id.menu_teams:
-                        Toast.makeText(view.getApplicationContext(), "Teams", Toast.LENGTH_SHORT).show();
+                        intent = new Intent(view, Equipos.class);
 
+                        view.startActivity(intent);
                         activityTransaction = true;
                         break;
                     case R.id.menu_standings:

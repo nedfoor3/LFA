@@ -56,4 +56,19 @@
     <string name="developed_by">Desarrollado por:</string>
     <string name="acerca_de_texto">La informaci\u00F3n y logos contenidos son de car\u00E1cter informativo en busca de fomentar el Football en M\u00E9xico.</string>
     <string name="correo_soporte_rawr">"soporte@rawrstudio.com</string>
+
+    <!--detalleEquipos-->
+    <string name="abreviature_number">No.</string>
+    <string name="name_string">Name</string>
+    <string name="position_string">Pos</string>
+    <string name="height_string">Height</string>
+    <string name="weight_string">Weight</string>
+    <string name="empty_number_value" translatable="false">-</string>
+    <string name="local">Local</string>
+    <string name="visitante">Visitor</string>
+    <string name="estatus_pendiente">P</string>
+    <string name="sin_fecha">No Date Available</string>
+    <string name="final_texto" translatable="false">final</string>
+    <string name="jugando_texto">Playing</string>
+
 </resources>
