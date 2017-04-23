@@ -56,6 +56,66 @@ public class Equipos extends AppCompatActivity {
                 startActivity(intentCondors);
             }
         });
+
+        btnDinos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentCondors = new Intent(Equipos.this, DetalleEquipos.class);
+                intentCondors.putExtra("nombreEquipo", "Dinos");
+                intentCondors.putExtra("ganados", "2");
+                intentCondors.putExtra("perdidos", "5");
+                intentCondors.putExtra("empatados", "0");
+                startActivity(intentCondors);
+            }
+        });
+
+        btnEagles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentCondors = new Intent(Equipos.this, DetalleEquipos.class);
+                intentCondors.putExtra("nombreEquipo", "Eagles");
+                intentCondors.putExtra("ganados", "4");
+                intentCondors.putExtra("perdidos", "3");
+                intentCondors.putExtra("empatados", "0");
+                startActivity(intentCondors);
+            }
+        });
+
+        btnFundidores.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentCondors = new Intent(Equipos.this, DetalleEquipos.class);
+                intentCondors.putExtra("nombreEquipo", "Fundidores");
+                intentCondors.putExtra("ganados", "2");
+                intentCondors.putExtra("perdidos", "5");
+                intentCondors.putExtra("empatados", "0");
+                startActivity(intentCondors);
+            }
+        });
+
+        btnMayas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentCondors = new Intent(Equipos.this, DetalleEquipos.class);
+                intentCondors.putExtra("nombreEquipo", "Mayas");
+                intentCondors.putExtra("ganados", "6");
+                intentCondors.putExtra("perdidos", "1");
+                intentCondors.putExtra("empatados", "0");
+                startActivity(intentCondors);
+            }
+        });
+
+        btnRaptors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentCondors = new Intent(Equipos.this, DetalleEquipos.class);
+                intentCondors.putExtra("nombreEquipo", "Raptors");
+                intentCondors.putExtra("ganados", "5");
+                intentCondors.putExtra("perdidos", "2");
+                intentCondors.putExtra("empatados", "0");
+                startActivity(intentCondors);
+            }
+        });
     }
 
 
