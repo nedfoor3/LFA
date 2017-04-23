@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "864870967830",
+    "firebase_url": "https://lfa-desarrollo.firebaseio.com",
+    "project_id": "lfa-desarrollo",
+    "storage_bucket": "lfa-desarrollo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864870967830:android:280c0594ba9310f5",
+        "android_client_info": {
+          "package_name": "com.proyectofootball.titanes.lfa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864870967830-r515lcso38mqarkn2qr11b1ottb0knrm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgu188kO7MT0B64aPktOlp6OVoinpHyBY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864870967830:android:ff157946b5e89d33",
+        "android_client_info": {
+          "package_name": "mx.lfa.com.rawrstudio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864870967830-p7klq9ihj3jn7tmkqr913dpnhhdmvkn8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.lfa.com.rawrstudio",
+            "certificate_hash": "0c742e8fc2f34a2b60d49f466cde944419cf42f3"
+          }
+        },
+        {
+          "client_id": "864870967830-r515lcso38mqarkn2qr11b1ottb0knrm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgu188kO7MT0B64aPktOlp6OVoinpHyBY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864870967830-r515lcso38mqarkn2qr11b1ottb0knrm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
