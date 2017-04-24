@@ -6,8 +6,6 @@
     <item
         android:drawable="@drawable/ic_lfa_letras_y_escudo"
         android:gravity="center">
-
     </item>
-
 
 </layer-list>

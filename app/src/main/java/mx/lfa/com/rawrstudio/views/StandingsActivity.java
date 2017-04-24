@@ -59,6 +59,12 @@ public class StandingsActivity extends AppCompatActivity implements ActionbarVie
         mMenuPresenter.onClickOptionItemMenu(lateralMenu, drawerLayoutMain);
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
+    }
+
     /**
      * Op Options Item Selected
      *

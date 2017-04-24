@@ -5,10 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".utils.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".utils.MainApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -20,19 +20,49 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".views.SettingsActivity" />
-        <activity android:name=".views.StandingsActivity" />
-        <activity android:name=".views.Patrocinadores" />
-        <activity android:name=".views.AcercaDe" />
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.SettingsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.StandingsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.Patrocinadores"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.AcercaDe"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
 
         <receiver android:name=".broadcastreceivers.NewsReceiver" />
 
         <service android:name=".services.NewsNotificationService" />
 
-        <activity android:name=".views.NewsActivity" />
-        <activity android:name=".views.Equipos" />
-        <activity android:name=".views.DetalleEquipos"></activity>
+        <activity
+            android:name=".views.NewsActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.Equipos"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.DetalleEquipos"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

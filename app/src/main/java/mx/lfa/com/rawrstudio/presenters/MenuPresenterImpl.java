@@ -7,6 +7,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 
+import mx.lfa.com.rawrstudio.MainActivity;
 import mx.lfa.com.rawrstudio.R;
 import mx.lfa.com.rawrstudio.interfaces.Menu.MenuPresenter;
 import mx.lfa.com.rawrstudio.views.AcercaDe;
@@ -21,6 +22,13 @@ import mx.lfa.com.rawrstudio.views.StandingsActivity;
 public class MenuPresenterImpl implements MenuPresenter {
 
     private Activity view;
+
+    private static final String MAIN_ACTIVITY_CLASS = "MainActivity";
+    private static final String TEAMS_CLASS = "Equipos";
+    private static final String STANDINGS_ACTIVITY_CLASS = "StandingsActivity";
+    private static final String SPONSORS_ACTIVITY_CLASS = "Patrocinadores";
+    private static final String ABOUT_CLASS = "AcercaDe";
+    private static final String SETTINGS_ACTIVITY_CLASS = "SettingsActivity";
 
     /**
      * Instantiates a new Menu presenter.
@@ -39,7 +47,7 @@ public class MenuPresenterImpl implements MenuPresenter {
      */
     @Override
     public void onClickOptionItemMenu(NavigationView navigationView, DrawerLayout drawerLayout) {
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             /**
              * Called when an item in the navigation menu is selected.
              *
@@ -55,46 +63,54 @@ public class MenuPresenterImpl implements MenuPresenter {
 
                 Intent intent = null;
 
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.menu_news:
-
-                        intent = new Intent(view, StandingsActivity.class);
+                        intent = new Intent(view, MainActivity.class);
                         view.startActivity(intent);
                         activityTransaction = true;
                         break;
                     case R.id.menu_teams:
-                        intent = new Intent(view, Equipos.class);
 
+                        intent = new Intent(view, Equipos.class);
                         view.startActivity(intent);
                         activityTransaction = true;
+
                         break;
                     case R.id.menu_standings:
+
                         intent = new Intent(view, StandingsActivity.class);
 
                         view.startActivity(intent);
                         activityTransaction = true;
+
                         break;
                     case R.id.menu_sponsors:
                         intent = new Intent(view, Patrocinadores.class);
 
                         view.startActivity(intent);
                         activityTransaction = true;
+
                         break;
                     case R.id.menu_about:
+
                         intent = new Intent(view, AcercaDe.class);
 
                         view.startActivity(intent);
                         activityTransaction = true;
+
                         break;
                     case R.id.menu_config:
+
                         intent = new Intent(view, SettingsActivity.class);
                         view.startActivity(intent);
 
                         activityTransaction = true;
+
                         break;
                 }
                 return activityTransaction;
             }
         });
     }
+
 }

@@ -100,6 +100,11 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
 
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
+    }
 
     /**
      * Sets toolbar values.

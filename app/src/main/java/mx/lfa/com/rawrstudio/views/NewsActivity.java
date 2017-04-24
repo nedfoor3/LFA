@@ -5,9 +5,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -31,6 +31,7 @@ import mx.lfa.com.rawrstudio.utils.Strings;
  */
 public class NewsActivity extends AppCompatActivity implements ActionbarView, NewsActivityView {
 
+
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.btn_try_again)
@@ -39,20 +40,22 @@ public class NewsActivity extends AppCompatActivity implements ActionbarView, Ne
     LinearLayout layoutCantLoad;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
+    @BindView(R.id.pruebaimagen)
+    ImageView pruebaimagen;
     @BindView(R.id.pager_gallery)
     ViewPager pagerGallery;
     @BindView(R.id.tv_title)
     TextView tvTitle;
+    @BindView(R.id.tv_date)
+    TextView tvDate;
     @BindView(R.id.tv_text)
-    TextView tvText;
+    WebView tvText;
     @BindView(R.id.layout_full_article)
     LinearLayout layoutFullArticle;
     @BindView(R.id.main_toolbar)
     LinearLayout mainToolbar;
     @BindView(R.id.drawer_layout_main)
     DrawerLayout drawerLayoutMain;
-    @BindView(R.id.pruebaimagen)
-    ImageView pruebaimagen;
     private ActionbarView actionbarView;
     private NewsActivityPresenter newsActivityPresenter;
     private String title;
@@ -169,7 +172,15 @@ public class NewsActivity extends AppCompatActivity implements ActionbarView, Ne
      */
     @Override
     public void setText() {
-        tvText.setText(Html.fromHtml(text));
+        tvText.getSettings().setJavaScriptEnabled(true);
+        tvText.getSettings().setJavaScriptEnabled(true);
+        tvText.getSettings().setLoadWithOverviewMode(true);
+        tvText.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+        tvText.setScrollbarFadingEnabled(false);
+
+        this.text = text.replaceAll("<img.+?>", "");
+
+        tvText.loadDataWithBaseURL("", this.text, "text/html", "UTF-8", "");
     }
 
     /**

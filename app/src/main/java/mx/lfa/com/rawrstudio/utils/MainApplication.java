@@ -12,4 +12,6 @@ public class MainApplication extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(LocaleHelper.onAttach(base, "es"));
     }
+
+
 }
