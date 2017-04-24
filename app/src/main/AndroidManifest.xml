@@ -31,7 +31,8 @@
 
         <activity android:name=".views.NewsActivity" />
         <activity android:name=".views.Equipos" />
-        <activity android:name=".views.DetalleEquipos"></activity>
+        <activity android:name=".views.DetalleEquipos" />
+        <activity android:name=".views.TazonPlayByPlay"></activity>
     </application>
 
 </manifest>

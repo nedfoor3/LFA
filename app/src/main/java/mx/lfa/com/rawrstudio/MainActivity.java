@@ -1,7 +1,10 @@
 package mx.lfa.com.rawrstudio;
 
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -11,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -28,6 +32,7 @@ import mx.lfa.com.rawrstudio.interfaces.Menu.MenuPresenter;
 import mx.lfa.com.rawrstudio.models.News;
 import mx.lfa.com.rawrstudio.presenters.MainViewPresenterImpl;
 import mx.lfa.com.rawrstudio.presenters.MenuPresenterImpl;
+import mx.lfa.com.rawrstudio.views.TazonPlayByPlay;
 
 /**
  * The type Main activity.
@@ -62,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
     Button btnTryAgain;
     @BindView(R.id.layout_cant_load)
     LinearLayout layoutCantLoad;
+    @BindView(R.id.mascara)
+    Button mascara;
 
     private MenuPresenter mMenuPresenter;
     private MainActivityPresenter mMainActivityPresenter;
@@ -72,6 +79,9 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        Window localWindow = this.getWindow();
+        localWindow.setStatusBarColor(this.getResources().getColor(R.color.negro));
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
@@ -97,6 +107,13 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
         // Swip
         swipeContainer.setOnRefreshListener(this);
 
+        mascara.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, TazonPlayByPlay.class));
+            }
+        });
+
     }
 
     /**
@@ -106,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
     public void setToolbarValues() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
-
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -243,4 +260,5 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
     public void setTvSegundos(TextView tvSegundos) {
         this.tvSegundos = tvSegundos;
     }
+
 }

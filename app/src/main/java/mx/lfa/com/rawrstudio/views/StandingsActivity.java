@@ -23,18 +23,6 @@ public class StandingsActivity extends AppCompatActivity implements ActionbarVie
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.tv_dias)
-    TextView tvDias;
-    @BindView(R.id.tv_horas)
-    TextView tvHoras;
-    @BindView(R.id.tv_minutos)
-    TextView tvMinutos;
-    @BindView(R.id.tv_segundos)
-    TextView tvSegundos;
-    @BindView(R.id.layout_timer)
-    LinearLayout layoutTimer;
-    @BindView(R.id.progressBar)
-    ProgressBar progressBar;
     @BindView(R.id.tv_grupo_suerox)
     TextView tvGrupoSuerox;
     @BindView(R.id.tabla_grupo_suerox)
