@@ -16,7 +16,9 @@
         Ü	\u00DC	U con dieress
         ü	\u00FC	u con dieresis
         ñ 	\u00F1	n con tilde
-        Ñ   \u00D1  N con tilde -->
+        Ñ   \u00D1  N con tilde
+
+        ®   \u00AE  ® Registred -->
     <!-- usar en caso de acento o ñ: -->
 
     <!-- TEAM GROUPS -->

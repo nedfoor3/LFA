@@ -6,9 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import mx.lfa.com.rawrstudio.MainActivity;
 import mx.lfa.com.rawrstudio.R;
 import mx.lfa.com.rawrstudio.interfaces.Menu.MenuPresenter;
 import mx.lfa.com.rawrstudio.views.AcercaDe;
@@ -59,8 +57,9 @@ public class MenuPresenterImpl implements MenuPresenter {
 
                 switch (item.getItemId()){
                     case R.id.menu_news:
-                        Toast.makeText(view.getApplicationContext(), "News", Toast.LENGTH_SHORT).show();
 
+                        intent = new Intent(view, StandingsActivity.class);
+                        view.startActivity(intent);
                         activityTransaction = true;
                         break;
                     case R.id.menu_teams:
