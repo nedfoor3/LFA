@@ -18,10 +18,6 @@
 
         <include layout="@layout/layout_toolbar" />
 
-        <include
-            android:id="@+id/layout_timer"
-            layout="@layout/layout_timer" />
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">

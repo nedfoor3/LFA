@@ -1,5 +1,6 @@
 package mx.lfa.com.rawrstudio.interfaces.NewsActivity;
 
+import java.text.ParseException;
 import java.util.List;
 
 import mx.lfa.com.rawrstudio.models.MediaData;
@@ -14,7 +15,7 @@ public interface NewsActivityInteractor {
      * @param originalDate the original date
      * @return the custom date
      */
-    String getCustomDate(String originalDate);
+    String getCustomDate(String originalDate) throws ParseException;
 
     /**
      * Gets urls media.

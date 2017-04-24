@@ -33,7 +33,15 @@
                     android:id="@+id/tv_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:textColor="@color/colorPrimaryText"
                     android:text="@string/empty" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_date"
+                    android:textAlignment="textEnd" />
 
                 <TextView
                     android:id="@+id/tv_text"

@@ -50,8 +50,8 @@
         <item>Espa\u00F1ol</item>
     </string-array>
     <string-array name="orden_idiomas_disponibles">
-        <item>0</item>
-        <item>1</item>
+        <item>en</item>
+        <item>es</item>
     </string-array>
 
     <!--acecaDe-->

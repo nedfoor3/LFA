@@ -7,6 +7,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TableLayout;
@@ -23,16 +24,6 @@ public class StandingsActivity extends AppCompatActivity implements ActionbarVie
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.tv_dias)
-    TextView tvDias;
-    @BindView(R.id.tv_horas)
-    TextView tvHoras;
-    @BindView(R.id.tv_minutos)
-    TextView tvMinutos;
-    @BindView(R.id.tv_segundos)
-    TextView tvSegundos;
-    @BindView(R.id.layout_timer)
-    LinearLayout layoutTimer;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
     @BindView(R.id.tv_grupo_suerox)
@@ -43,13 +34,14 @@ public class StandingsActivity extends AppCompatActivity implements ActionbarVie
     TextView tvGrupoUnderArmour;
     @BindView(R.id.tabla_grupo_under_armour)
     TableLayout tablaGrupoUnderArmour;
+    @BindView(R.id.horizontalScrollView)
+    HorizontalScrollView horizontalScrollView;
     @BindView(R.id.main_toolbar)
     LinearLayout mainToolbar;
     @BindView(R.id.lateral_menu)
     NavigationView lateralMenu;
     @BindView(R.id.drawer_layout_main)
     DrawerLayout drawerLayoutMain;
-
     private MenuPresenterImpl mMenuPresenter;
 
     @Override

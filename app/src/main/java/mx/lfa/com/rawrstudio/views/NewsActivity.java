@@ -79,7 +79,7 @@ public class NewsActivity extends AppCompatActivity implements ActionbarView, Ne
         actionbarView = this;
         actionbarView.setToolbarValues();
 
-        newsActivityPresenter = new NewsActivityPresenterImpl(this, idMedia, mUrlFeature);
+        newsActivityPresenter = new NewsActivityPresenterImpl(this, idMedia, mUrlFeature, date);
         newsActivityPresenter.loadArticle();
 
 
