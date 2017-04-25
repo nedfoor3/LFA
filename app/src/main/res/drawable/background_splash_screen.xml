@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:drawable="@color/verde_lfa_Dark"/>
+    <item android:drawable="@android:color/white" />
 
-    <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@mipmap/ic_launcher"/>
+    <item
+        android:drawable="@drawable/ic_lfa_letras_y_escudo"
+        android:gravity="center">
     </item>
 
 </layer-list>

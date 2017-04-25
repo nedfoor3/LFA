@@ -27,9 +27,7 @@ public class SplashScreenActivity extends AppCompatActivity implements SplashScr
 
         finish();
 
-
     }
-
 
     /**
      * On finish load preferences.

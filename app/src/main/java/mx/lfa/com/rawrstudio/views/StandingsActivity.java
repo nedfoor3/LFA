@@ -23,6 +23,8 @@ public class StandingsActivity extends AppCompatActivity implements ActionbarVie
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
     @BindView(R.id.tv_grupo_suerox)
     TextView tvGrupoSuerox;
     @BindView(R.id.tabla_grupo_suerox)
@@ -31,13 +33,14 @@ public class StandingsActivity extends AppCompatActivity implements ActionbarVie
     TextView tvGrupoUnderArmour;
     @BindView(R.id.tabla_grupo_under_armour)
     TableLayout tablaGrupoUnderArmour;
+    @BindView(R.id.horizontalScrollView)
+    HorizontalScrollView horizontalScrollView;
     @BindView(R.id.main_toolbar)
     LinearLayout mainToolbar;
     @BindView(R.id.lateral_menu)
     NavigationView lateralMenu;
     @BindView(R.id.drawer_layout_main)
     DrawerLayout drawerLayoutMain;
-
     private MenuPresenterImpl mMenuPresenter;
 
     @Override
@@ -53,6 +56,12 @@ public class StandingsActivity extends AppCompatActivity implements ActionbarVie
         // Menu Presenter Logic
         mMenuPresenter = new MenuPresenterImpl(this);
         mMenuPresenter.onClickOptionItemMenu(lateralMenu, drawerLayoutMain);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
     }
 
     /**

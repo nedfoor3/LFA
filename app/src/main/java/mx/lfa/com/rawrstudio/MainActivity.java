@@ -2,6 +2,7 @@ package mx.lfa.com.rawrstudio;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -32,7 +33,7 @@ import mx.lfa.com.rawrstudio.interfaces.Menu.MenuPresenter;
 import mx.lfa.com.rawrstudio.models.News;
 import mx.lfa.com.rawrstudio.presenters.MainViewPresenterImpl;
 import mx.lfa.com.rawrstudio.presenters.MenuPresenterImpl;
-import mx.lfa.com.rawrstudio.views.TazonPlayByPlay;
+import mx.lfa.com.rawrstudio.utils.LocaleHelper;
 
 /**
  * The type Main activity.
@@ -97,7 +98,6 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
         // Menu Presenter Logic
         mMenuPresenter = new MenuPresenterImpl(this);
         mMenuPresenter.onClickOptionItemMenu(lateralMenu, drawerLayoutMain);
-        drawerLayoutMain.setScrimColor(getResources().getColor(R.color.transparente));
 
         // Main Activity Presenter Logic
         mMainActivityPresenter = new MainViewPresenterImpl(this, recyclerviewNews);
@@ -116,6 +116,12 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
 
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
+    }
+
     /**
      * Sets toolbar values.
      */
@@ -123,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
     public void setToolbarValues() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -259,6 +265,11 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
 
     public void setTvSegundos(TextView tvSegundos) {
         this.tvSegundos = tvSegundos;
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 
 }

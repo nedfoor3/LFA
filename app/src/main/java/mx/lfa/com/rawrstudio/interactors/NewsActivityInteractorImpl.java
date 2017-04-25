@@ -3,7 +3,10 @@ package mx.lfa.com.rawrstudio.interactors;
 import android.content.Context;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import mx.lfa.com.rawrstudio.dao.RetrofitNewsDao;
@@ -35,7 +38,21 @@ public class NewsActivityInteractorImpl implements NewsActivityInteractor {
      */
     @Override
     public String getCustomDate(String originalDate) {
-        return null;
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        String dateInString = "31-08-1982 10:20:56";
+        Date date = null;
+        try {
+            date = sdf.parse(originalDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(date); //Tue Aug 31 10:20:56 SGT 1982
+
+        //Toast.makeText(context, "fecha:" + date.toString(), Toast.LENGTH_SHORT).show();
+        //Log.v("hola", date.toString());
+        return "";
+
     }
 
     /**

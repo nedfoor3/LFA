@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="preferencias_principal" >
-    <PreferenceCategory
-        android:title="@string/idoma"
-        android:key="idioma" />
+    <PreferenceCategory android:title="@string/idoma">
 
-    <ListPreference
-        android:key="idioma"
-        android:title="@string/elegir_idoma"
-        android:entries="@array/idiomas_disponibles"
-        android:entryValues="@array/orden_idiomas_disponibles"
-        android:defaultValue="1"/>
-    <!--<PreferenceCategory
-        android:title="Notificaciones por correo"
-        android:key="notificaciones" />-->
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/idiomas_disponibles"
+            android:entryValues="@array/orden_idiomas_disponibles"
+            android:key="idioma"
+            android:title="@string/elegir_idoma" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
