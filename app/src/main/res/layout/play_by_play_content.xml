@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="1dp"
+    android:layout_marginBottom="2dp"
+    android:background="@color/gris">
+    <TextView
+        android:id="@+id/equipo_play_by_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="equipo"
+        android:background="@color/blanco"/>
+    <TextView
+        android:id="@+id/oportunidad_play_by_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blanco"
+        android:text="oportunidad"/>
+    <TextView
+        android:id="@+id/jugada_play_by_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blanco"
+        android:text="jugada"/>
+
+</LinearLayout>
