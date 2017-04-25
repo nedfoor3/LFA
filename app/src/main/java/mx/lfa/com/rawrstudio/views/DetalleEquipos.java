@@ -1,23 +1,21 @@
 package mx.lfa.com.rawrstudio.views;
 
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.PagerAdapter;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import mx.lfa.com.rawrstudio.R;
-import mx.lfa.com.rawrstudio.adapters.DetailsTeamPagerAdapter;
+import mx.lfa.com.rawrstudio.adapters.DetailPagerAdapter;
 
 public class DetalleEquipos extends AppCompatActivity {
 
@@ -39,8 +37,7 @@ public class DetalleEquipos extends AppCompatActivity {
     ViewPager viewPagerDatosComplementarios;
     @BindView(R.id.activity_teams_detail)
     CoordinatorLayout activityTeamsDetail;
-
-    private PagerAdapter adapter;
+    private FragmentPagerAdapter adapter;
 
     /*Nombre Equipo Static*/
     private final static String NOMBRE_EQUIPO = "nombreEquipo";
@@ -66,17 +63,22 @@ public class DetalleEquipos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_equipos);
         ButterKnife.bind(this);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        Window localWindow = this.getWindow();
-        localWindow.setStatusBarColor(this.getResources().getColor(R.color.negro));
 
         instanciarElementos();
 
         cargaDetallesEquipo();
+
+        /*MenuGenerico mMenu = new MenuGenerico();
+        mMenu.crearMenu(this);*/
+
+
     }
 
     private void instanciarElementos() {
+
+
         setSupportActionBar(toolbar);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
@@ -88,8 +90,7 @@ public class DetalleEquipos extends AppCompatActivity {
         this.perdidos = extras.getString(PARTIDOS_PERDIDOS);
         this.empatados = extras.getString(PARTIDOS_EMPATADOS);
 
-        adapter = new DetailsTeamPagerAdapter(getSupportFragmentManager(), this, this.nombreEquipo);
-
+        adapter = new DetailPagerAdapter(getSupportFragmentManager(), this.nombreEquipo);
         viewPagerDatosComplementarios.setAdapter(adapter);
 
         viewPagerDatosComplementarios.addOnPageChangeListener(new
@@ -135,8 +136,8 @@ public class DetalleEquipos extends AppCompatActivity {
 
         tvEquipoEnToolbar.setText(nombreEquipo);
         recordEquipoEnToolbar.setText(recordEquipo);
-/*
+
         int resourceId = getResources().getIdentifier("logo_" + nombreEquipo.toLowerCase() + "_fondo_color_sin_texto", "drawable", "com.proyectofootball.titanes.lfa");
-        imgLogoEquipoToolbar.setImageResource(resourceId);*/
+        logoEquipoEnToolbar.setImageResource(resourceId);
     }
 }
