@@ -24,6 +24,7 @@
         <activity android:name=".views.StandingsActivity" />
         <activity android:name=".views.Patrocinadores" />
         <activity android:name=".views.AcercaDe" />
+        <activity android:name=".views.TazonPlayByPlay" />
 
         <receiver android:name=".broadcastreceivers.NewsReceiver" />
 
