@@ -8,8 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
-import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 
 import butterknife.BindView;
@@ -19,27 +22,20 @@ import mx.lfa.com.rawrstudio.models.PlaybyPlay;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.List;
 
 public class TazonPlayByPlay extends AppCompatActivity {
-
-    public static class pBpViewHolder extends RecyclerView.ViewHolder {
-        public TextView pbpEquipo, pbpOportunidad, pbpJugada;
-
-        public pBpViewHolder(View v) {
-            super(v);
-            pbpEquipo = (TextView) itemView.findViewById(R.id.equipo_play_by_play);
-            pbpOportunidad = (TextView) itemView.findViewById(R.id.oportunidad_play_by_play);
-            pbpJugada = (TextView) itemView.findViewById(R.id.jugada_play_by_play);
-        }
-    }
-
     public static final String TAZONMEXICOII = "2017/tazonMexicoII";
-    private RecyclerView mpbpRecyclerView;
+    private RecyclerView mpbpRecyclerList;
     private LinearLayoutManager mLinearLayoutManager;
-    private DatabaseReference mFirebaseDatabaseReference;
-    private DatabaseReference mRowsTazon;
-    private FirebaseRecyclerAdapter<PlaybyPlay, pBpViewHolder> mFirebaseAdapter;
-
+    private DatabaseReference mDatabaseReference, marcacorLiveMayas, marcadorLiveDinos, mRowsTazon;
+    //private TextView pbpEquipo, pbpOportunidad, pbpJugada;
+    private ListView listViewJugadas;
+    private List<PlaybyPlay>laBuena;
+    private FirebaseRecyclerAdapter<PlaybyPlay, pBpViewHolder> mFirebaseRecyclerAdapter;
+    private PlaybyPlay paraTazon;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -47,10 +43,8 @@ public class TazonPlayByPlay extends AppCompatActivity {
     TextView marcadorMayas;
     @BindView(R.id.marcador_dinos)
     TextView marcadorDinos;
-    @BindView(R.id.recycler_play_by_play)
-    RecyclerView recyclerPlayByPlay;
-
-
+ //   @BindView(R.id.recycler_play_by_play)
+   // RecyclerView recyclerPlayByPlay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +54,13 @@ public class TazonPlayByPlay extends AppCompatActivity {
         localWindow.setStatusBarColor(this.getResources().getColor(R.color.negro));
         setContentView(R.layout.activity_tazon_play_by_play);
         ButterKnife.bind(this);
-        mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
-        System.out.print(mFirebaseDatabaseReference);
+
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
         setToolbarValues();
         iniGUI();
+        marcadorLive();
+        jugadaAjugada();
 
     }
 
@@ -78,47 +74,75 @@ public class TazonPlayByPlay extends AppCompatActivity {
     }
 
     public void iniGUI(){
-        mpbpRecyclerView = (RecyclerView)findViewById(R.id.recycler_play_by_play);
+        mRowsTazon = mDatabaseReference.child("2017").child("tazonMexicoII");
+
+        mpbpRecyclerList = (RecyclerView)findViewById(R.id.recycler_play_by_play);
+        mpbpRecyclerList.setHasFixedSize(true);
+        mpbpRecyclerList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
         mLinearLayoutManager = new LinearLayoutManager(this);
         mLinearLayoutManager.setStackFromEnd(true);
-        mpbpRecyclerView.setLayoutManager(mLinearLayoutManager);
-        mRowsTazon = mFirebaseDatabaseReference.child("2017/tazonMexicoII");
+        mpbpRecyclerList.setLayoutManager(mLinearLayoutManager);
 
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<PlaybyPlay, pBpViewHolder>(
+    }
+
+    public void marcadorLive(){
+        marcacorLiveMayas = mDatabaseReference.child("2017").child("tazonMexicoII").child("marcadorMayas");
+        marcadorLiveDinos = mDatabaseReference.child("2017").child("tazonMexicoII").child("marcadorDinos");
+        marcacorLiveMayas.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                marcadorMayas.setText(dataSnapshot.getValue().toString());
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        marcadorLiveDinos.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                marcadorDinos.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void jugadaAjugada(){
+        FirebaseRecyclerAdapter<PlaybyPlay, pBpViewHolder> fireBaseRecyclerAdapter = new FirebaseRecyclerAdapter<PlaybyPlay, pBpViewHolder>(
                 PlaybyPlay.class,
                 R.layout.play_by_play_content,
                 pBpViewHolder.class,
                 mRowsTazon) {
             @Override
             protected void populateViewHolder(pBpViewHolder viewHolder, PlaybyPlay model, int position) {
-                viewHolder.pbpEquipo.setText(model.getEquipo());
-                viewHolder.pbpOportunidad.setText(model.getOportunidad());
-                viewHolder.pbpJugada.setText(model.getJugada());
+                viewHolder.setEquipo(model.getEquipo());
+                viewHolder.setOportunidad(model.getOportunidad());
+                viewHolder.setJugada(model.getJugada());
             }
+
         };
 
-        mFirebaseAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver(){
-            @Override
-            public void onItemRangeInserted(int positionStart, int itemCount){
-                super.onItemRangeInserted(positionStart, itemCount);
-                int roomCount = mFirebaseAdapter.getItemCount();
-                int lastVisiblePosition = mLinearLayoutManager.findLastCompletelyVisibleItemPosition();
-                if (lastVisiblePosition == -1 || (positionStart >= (roomCount -1) && lastVisiblePosition == (positionStart -1))){
-                    mpbpRecyclerView.scrollToPosition(positionStart);
-                }
-            }
-        });
-        mpbpRecyclerView.setLayoutManager(mLinearLayoutManager);
-        mpbpRecyclerView.setAdapter(mFirebaseAdapter);
-    
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mpbpRecyclerList.setLayoutManager(layoutManager);
+
+        mpbpRecyclerList.setAdapter(fireBaseRecyclerAdapter);
 
     }
+
 
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in.
-        // TODO: Add code to check if user is signed in.
+
     }
 
     @Override
@@ -136,6 +160,29 @@ public class TazonPlayByPlay extends AppCompatActivity {
         super.onDestroy();
     }
 
+    public static class pBpViewHolder extends RecyclerView.ViewHolder {
+        View pbpView;
 
+        public pBpViewHolder(View itemView) {
+            super(itemView);
+            pbpView = itemView;
+        }
+
+        public void setEquipo(String equipo){
+            TextView pbpEquipo = (TextView)pbpView.findViewById(R.id.equipo_play_by_play);
+            pbpEquipo.setText(equipo);
+
+        }
+
+        public void setOportunidad(String oportunidad) {
+            TextView pbpOportunidad = (TextView) pbpView.findViewById(R.id.oportunidad_play_by_play);
+            pbpOportunidad.setText(oportunidad);
+        }
+
+        public void setJugada(String jugada) {
+            TextView pbpJugada = (TextView)pbpView.findViewById(R.id.jugada_play_by_play);
+            pbpJugada.setText(jugada);
+        }
+    }
 
 }

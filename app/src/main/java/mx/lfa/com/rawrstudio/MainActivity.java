@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
     public void setToolbarValues() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
-
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -193,6 +193,26 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
     @Override
     public void hideTimer() {
         layoutTimer.setVisibility(View.GONE);
+    }
+
+    /**
+     * Show timer.
+     */
+    //@Override
+    public void showBtnTazon() {
+        mascara.setVisibility(View.VISIBLE);
+        tvSegundos.setText("00");
+        tvMinutos.setText("00");
+        tvHoras.setText("00");
+        tvDias.setText("00");
+    }
+
+    /**
+     * Hide timer.
+     */
+    //@Override
+    public void hideBtnTimer() {
+        mascara.setVisibility(View.GONE);
     }
 
     /**

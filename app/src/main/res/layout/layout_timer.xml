@@ -130,10 +130,13 @@
             android:layout_marginLeft="10dp"/>
     </LinearLayout>
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:id="@+id/mascara"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:visibility="visible"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
             android:backgroundTint="@color/colorPrimaryTransparent"
             android:text="Tazón México"
             android:textColor="@color/blanco"

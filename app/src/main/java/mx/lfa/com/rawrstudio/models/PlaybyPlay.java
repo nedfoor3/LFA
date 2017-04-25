@@ -1,5 +1,7 @@
 package mx.lfa.com.rawrstudio.models;
 
+import java.util.List;
+
 /**
  * Created by Tonatiuh on 23/04/2017.
  */

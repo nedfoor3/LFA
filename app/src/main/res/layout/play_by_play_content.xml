@@ -11,18 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="equipo"
-        android:background="@color/blanco"/>
+        android:background="@color/blanco"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"/>
     <TextView
         android:id="@+id/oportunidad_play_by_play"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/blanco"
-        android:text="oportunidad"/>
+        android:text="oportunidad"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"/>
     <TextView
         android:id="@+id/jugada_play_by_play"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/blanco"
-        android:text="jugada"/>
+        android:text="jugada"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"/>
 
 </LinearLayout>

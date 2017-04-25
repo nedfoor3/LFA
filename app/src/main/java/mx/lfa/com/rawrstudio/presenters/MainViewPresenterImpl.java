@@ -110,6 +110,7 @@ public class MainViewPresenterImpl extends RecyclerView.OnScrollListener impleme
                     handler.postDelayed(this, 1000);
                     try {
                         Date futureDate = format.parse("2017-04-30 14:00");
+                        Date postBowl = format.parse("2017-05-01 00:01");
                         Date currentDate = new Date();
 
                         long diff = futureDate.getTime() - currentDate.getTime();
@@ -131,6 +132,8 @@ public class MainViewPresenterImpl extends RecyclerView.OnScrollListener impleme
                         if (!currentDate.after(futureDate)) {
                             view.showTimer();
                         } else {
+                            view.showBtnTazon();
+                        } if(currentDate.after(postBowl)){
                             view.hideTimer();
                         }
 

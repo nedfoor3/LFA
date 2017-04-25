@@ -2,6 +2,7 @@ package mx.lfa.com.rawrstudio.adapters;
 
 import android.content.Context;
 import android.os.Parcelable;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -25,6 +26,10 @@ public class ViewPagerAdapter extends PagerAdapter {
     public ViewPagerAdapter(Context patrocinadores, int[] img) {
         this.context = patrocinadores;
         this.images = img;
+    }
+
+    public ViewPagerAdapter(FragmentManager supportFragmentManager) {
+
     }
 
     @Override
