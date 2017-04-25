@@ -34,6 +34,7 @@ import mx.lfa.com.rawrstudio.models.News;
 import mx.lfa.com.rawrstudio.presenters.MainViewPresenterImpl;
 import mx.lfa.com.rawrstudio.presenters.MenuPresenterImpl;
 import mx.lfa.com.rawrstudio.utils.LocaleHelper;
+import mx.lfa.com.rawrstudio.views.TazonPlayByPlay;
 
 /**
  * The type Main activity.
