@@ -81,9 +81,6 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        Window localWindow = this.getWindow();
-        localWindow.setStatusBarColor(this.getResources().getColor(R.color.negro));
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
