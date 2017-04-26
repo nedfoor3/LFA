@@ -99,7 +99,7 @@ public class GetRecentNewsServiceAsync extends AsyncTask<Void, Integer, Boolean>
         Notification n = new Notification.Builder(context)
                 .setContentTitle(context.getString(R.string.app_name))
                 .setContentText(context.getString(R.string.push_notificatio_subtitle_first) + " " + num + " " + context.getString(R.string.push_notificatio_subtitle_second))
-                .setSmallIcon(R.drawable.ic_newspaper_white_24dp)
+                .setSmallIcon(R.drawable.ic_lfa_notificacion)
                 .setContentIntent(pIntent)
                 .setAutoCancel(true).setSound(alarmSound)
                 .build();
