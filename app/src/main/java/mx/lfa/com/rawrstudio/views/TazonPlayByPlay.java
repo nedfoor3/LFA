@@ -134,7 +134,7 @@ public class TazonPlayByPlay extends AppCompatActivity {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mpbpRecyclerList.setLayoutManager(layoutManager);*/
 
-        mpbpRecyclerList.setAdapter(fireBaseRecyclerAdapter);
+        //mpbpRecyclerList.setAdapter(fireBaseRecyclerAdapter);
 
     }
 

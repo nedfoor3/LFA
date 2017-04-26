@@ -53,19 +53,22 @@
             android:layout_below="@+id/rawr_letras"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/iv_logo_head"
+            android:overScrollMode="ifContentScrolls">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_below="@id/iv_logo_head"
             android:text="@string/acerca_de_info"
             android:id="@+id/textView2"
             android:textColor="@color/blanco"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:scrollbars="vertical"
             android:padding="8dp" />
+        </ScrollView>
 
         <ImageView
             android:id="@+id/imagen_logo_titan"
