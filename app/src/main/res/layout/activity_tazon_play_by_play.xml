@@ -45,7 +45,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/escudo_dinos"
+                android:src="@drawable/escudo_dinos_morado"
                 android:layout_marginLeft="20dp"
                 android:scaleX="2"
                 android:scaleY="2"/>
@@ -53,7 +53,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/gris"></RelativeLayout>
+            android:background="@color/gris"/>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_play_by_play"
             android:layout_width="match_parent"

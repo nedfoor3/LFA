@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -128,14 +130,20 @@ public class TazonPlayByPlay extends AppCompatActivity {
                 viewHolder.setJugada(model.getJugada());
             }
 
+            @Override
+            public pBpViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                return super.onCreateViewHolder(parent, viewType);
+            }
+
+            @Override
+            public int getItemViewType(int position) {
+                return super.getItemViewType(position);
+            }
         };
-/*
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        mpbpRecyclerList.setLayoutManager(layoutManager);*/
 
-        //mpbpRecyclerList.setAdapter(fireBaseRecyclerAdapter);
-
+        mpbpRecyclerList.setAdapter(fireBaseRecyclerAdapter);
+        LinearLayoutManager llmm = new LinearLayoutManager(this);
+        mpbpRecyclerList.setLayoutManager(llmm);
     }
 
 
