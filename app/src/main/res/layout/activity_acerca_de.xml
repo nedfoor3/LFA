@@ -50,26 +50,22 @@
             android:src="@drawable/logo_head"
             android:scaleX="1.5"
             android:scaleY="1.5"
-            android:layout_above="@+id/textView2"
-            android:layout_centerHorizontal="true" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:rotation="-12"
-            android:layout_below="@+id/textView2" />
+            android:layout_below="@+id/rawr_letras"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/acerca_de_texto"
+            android:layout_below="@id/iv_logo_head"
+            android:text="@string/acerca_de_info"
             android:id="@+id/textView2"
             android:textColor="@color/blanco"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="20dp"
+            android:scrollbars="vertical"
+            android:padding="8dp" />
 
         <ImageView
             android:id="@+id/imagen_logo_titan"

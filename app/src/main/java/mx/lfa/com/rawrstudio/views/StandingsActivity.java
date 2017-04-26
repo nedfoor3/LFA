@@ -89,6 +89,7 @@ public class StandingsActivity extends AppCompatActivity implements ActionbarVie
     public void setToolbarValues() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

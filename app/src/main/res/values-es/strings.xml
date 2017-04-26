@@ -57,7 +57,9 @@
     </string-array>
 
     <!--acecaDe-->
-    <string name="acerca_de_info">Esta aplicaci\u00F3n es la que me sacara de la carrera de la rata porque ya estoy hasta la madre!</string>
+    <string name="acerca_de_info">Somos propietarios o licenciatarios de todos los derechos de autor en el texto, imágenes, fotografías, video, audio, gráficos, interfaz de usuario y otros contenidos proporcionados en los Servicios, así como la selección, coordinación y arreglo de dicho contenido (ya sea por nosotros o por usted) ), En la medida prevista por las leyes de derecho de autor de los Estados Unidos Mexicanos y otros países. Excepto lo expresamente previsto en este Acuerdo, está prohibido copiar, reproducir, modificar, distribuir, exhibir, realizar o transmitir cualquiera de los contenidos de los Servicios para cualquier propósito y nada de lo contrario indicado o implícito en los Servicios le confiere una licencia O derecho a hacerlo.
+
+Usted puede utilizar los Servicios y el contenido en los Servicios únicamente para sus propios fines no comerciales e informativos. Cualquier otro uso, incluyendo para fines comerciales, está estrictamente prohibido sin nuestro previo consentimiento por escrito. Se prohíbe la recuperación sistemática de datos u otros contenidos de los Servicios, ya sea para crear o compilar, directa o indirectamente, una colección, compilación, base de datos o directorio, sin nuestro previo consentimiento por escrito.</string>
     <string name="developed_by">Desarrollado por:</string>
     <string name="acerca_de_texto">La informaci\u00F3n y logos contenidos son de car\u00E1cter informativo en busca de fomentar el Football en M\u00E9xico.</string>
     <string name="correo_soporte_rawr">"soporte@rawrstudio.com</string>
