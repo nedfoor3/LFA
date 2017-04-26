@@ -13,7 +13,7 @@ import mx.lfa.com.rawrstudio.fragments.RostersFragment;
  */
 
 public class DetailPagerAdapter extends FragmentPagerAdapter {
-
+    String tabTitles[] = new String[]{"Calendario", "Roster"};
     private static int NUM_ITEMS = 2;
     String nombreEquipo;
     Bundle args = new Bundle();
@@ -53,6 +53,12 @@ public class DetailPagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public int getCount() {
-        return NUM_ITEMS;
+        return tabTitles.length;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        // Generate title based on item position
+        return tabTitles[position];
     }
 }
