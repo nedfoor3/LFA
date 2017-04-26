@@ -1,15 +1,15 @@
 package mx.lfa.com.rawrstudio.views;
 
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -19,22 +19,21 @@ import mx.lfa.com.rawrstudio.adapters.DetailPagerAdapter;
 
 public class DetalleEquipos extends AppCompatActivity {
 
-    @BindView(R.id.tv_equipo_en_toolbar)
-    TextView tvEquipoEnToolbar;
-    @BindView(R.id.record_equipo_en_toolbar)
-    TextView recordEquipoEnToolbar;
-    @BindView(R.id.logo_equipo_en_toolbar)
-    ImageView logoEquipoEnToolbar;
+
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.toolbar_layout)
-    CollapsingToolbarLayout toolbarLayout;
+    @BindView(R.id.record_equipo_en_toolbar)
+    TextView recordEquipoEnToolbar;
     @BindView(R.id.tab_layout)
     TabLayout tabLayout;
     @BindView(R.id.viewPager_datos_complementarios)
     ViewPager viewPagerDatosComplementarios;
-    @BindView(R.id.activity_teams_detail)
-    CoordinatorLayout activityTeamsDetail;
+    @BindView(R.id.main_toolbar)
+    LinearLayout mainToolbar;
+    @BindView(R.id.drawer_layout_main)
+    DrawerLayout drawerLayoutMain;
+    @BindView(R.id.image_toolbar)
+    ImageView imageToolbar;
     private FragmentPagerAdapter adapter;
 
     /*Nombre Equipo Static*/
@@ -70,6 +69,18 @@ public class DetalleEquipos extends AppCompatActivity {
         mMenu.crearMenu(this);*/
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                //drawerLayoutMain.openDrawer(GravityCompat.START);
+                finish();
+                return true;
+            //...
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void instanciarElementos() {
@@ -132,10 +143,13 @@ public class DetalleEquipos extends AppCompatActivity {
             this.recordEquipo = this.ganados + " - " + this.perdidos;
         }
 
-        tvEquipoEnToolbar.setText(nombreEquipo);
+        //tvEquipoEnToolbar.setText(nombreEquipo);
         recordEquipoEnToolbar.setText(recordEquipo);
 
-        int resourceId = getResources().getIdentifier("logo_" + nombreEquipo.toLowerCase() + "_fondo_color_sin_texto", "drawable", "com.proyectofootball.titanes.lfa");
-        logoEquipoEnToolbar.setImageResource(resourceId);
+        int resourceId = getResources().getIdentifier("escudo_" + nombreEquipo.toLowerCase(), "drawable", "mx.lfa.com.rawrstudio");
+        imageToolbar.setBackgroundResource(resourceId);
+        /*logoEquipoEnToolbar.setImageResource(resourceId);*/
     }
+
+
 }
