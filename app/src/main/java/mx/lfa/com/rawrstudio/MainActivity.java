@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -36,7 +37,7 @@ import mx.lfa.com.rawrstudio.views.TazonPlayByPlay;
 /**
  * The type Main activity.
  */
-public class MainActivity extends AppCompatActivity implements ActionbarView, MainActivityView, SwipeRefreshLayout.OnRefreshListener {
+public class MainActivity extends AppCompatActivity implements ActionbarView, MainActivityView, SwipeRefreshLayout.OnRefreshListener{
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -294,5 +295,4 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
-
 }

@@ -9,74 +9,75 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/negro"
-        tools:context="com.proyectofootball.">
+        android:paddingBottom="6dp">
 
-<!--        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/rawr_studio"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/contacto_rawr"
-            android:layout_below="@+id/tv_develop"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/blanco"
-            android:textSize="35dp"/>-->
+        <!--        <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rawr_studio"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/contacto_rawr"
+                    android:layout_below="@+id/tv_develop"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/blanco"
+                    android:textSize="35dp"/>-->
 
         <RelativeLayout
             android:id="@+id/rawr_letras"
             android:layout_width="400dp"
             android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/tv_develop"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/rawrletras"></RelativeLayout>
 
         <TextView
+            android:id="@+id/tv_develop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/developed_by"
-            android:id="@+id/tv_develop"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/blanco"
             android:layout_marginBottom="6dp"
-            android:textSize="30dp"/>
+            android:text="@string/developed_by"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/blanco"
+            android:textSize="30dp" />
 
 
         <ImageView
+            android:id="@+id/iv_logo_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/iv_logo_head"
-            android:src="@drawable/logo_head"
-            android:scaleX="1.5"
-            android:scaleY="1.5"
             android:layout_below="@+id/rawr_letras"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="40dp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:src="@drawable/logo_head"
+            android:layout_marginBottom="30dp"/>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/iv_logo_head"
             android:overScrollMode="ifContentScrolls">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/acerca_de_info"
-            android:id="@+id/textView2"
-            android:textColor="@color/blanco"
-            android:layout_marginTop="20dp"
-            android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/acerca_de_info"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/blanco" />
         </ScrollView>
 
         <ImageView
             android:id="@+id/imagen_logo_titan"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_titan"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_titan" />
 
 
     </RelativeLayout>

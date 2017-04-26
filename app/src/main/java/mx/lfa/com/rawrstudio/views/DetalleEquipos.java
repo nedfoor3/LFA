@@ -1,27 +1,41 @@
 package mx.lfa.com.rawrstudio.views;
 
-
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Window;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import mx.lfa.com.rawrstudio.R;
-import mx.lfa.com.rawrstudio.adapters.ViewPagerAdapter;
-import mx.lfa.com.rawrstudio.fragments.CalendarFragment;
-import mx.lfa.com.rawrstudio.fragments.RosterFragment;
+import mx.lfa.com.rawrstudio.adapters.DetailPagerAdapter;
 
 public class DetalleEquipos extends AppCompatActivity {
 
-    //private FragmentPagerAdapter adapter;
-    private ViewPager viewPagerTeams;
-    private ViewPagerAdapter viewPagerAdapter;
-    private Bundle bundle;
-    private Toolbar toolbarDetailTeams;
-    private TabLayout tabLayoutDetalle;
+    @BindView(R.id.tv_equipo_en_toolbar)
+    TextView tvEquipoEnToolbar;
+    @BindView(R.id.record_equipo_en_toolbar)
+    TextView recordEquipoEnToolbar;
+    @BindView(R.id.logo_equipo_en_toolbar)
+    ImageView logoEquipoEnToolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.toolbar_layout)
+    CollapsingToolbarLayout toolbarLayout;
+    @BindView(R.id.tab_layout)
+    TabLayout tabLayout;
+    @BindView(R.id.viewPager_datos_complementarios)
+    ViewPager viewPagerDatosComplementarios;
+    @BindView(R.id.activity_teams_detail)
+    CoordinatorLayout activityTeamsDetail;
+    private FragmentPagerAdapter adapter;
 
     /*Nombre Equipo Static*/
     private final static String NOMBRE_EQUIPO = "nombreEquipo";
@@ -46,21 +60,26 @@ public class DetalleEquipos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_equipos);
-        //ButterKnife.bind(this);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        Window localWindow = this.getWindow();
-        localWindow.setStatusBarColor(this.getResources().getColor(R.color.negro));
+        ButterKnife.bind(this);
 
         instanciarElementos();
 
         cargaDetallesEquipo();
+
+        /*MenuGenerico mMenu = new MenuGenerico();
+        mMenu.crearMenu(this);*/
+
+
     }
 
     private void instanciarElementos() {
-        setSupportActionBar(toolbarDetailTeams);
+
+
+        setSupportActionBar(toolbar);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
         Bundle extras = getIntent().getExtras();
 
@@ -69,16 +88,37 @@ public class DetalleEquipos extends AppCompatActivity {
         this.perdidos = extras.getString(PARTIDOS_PERDIDOS);
         this.empatados = extras.getString(PARTIDOS_EMPATADOS);
 
-        viewPagerTeams = (ViewPager) findViewById(R.id.viewPager_datos_complementarios);
-        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-       // viewPagerAdapter.addFragments(new CalendarFragment(), getResources().getString(R.string.empty));
-       // viewPagerAdapter.addFragments(new RosterFragment(), getResources().getString(R.string.empty));
-        viewPagerTeams.setAdapter(viewPagerAdapter);
-        tabLayoutDetalle.setupWithViewPager(viewPagerTeams);
+        adapter = new DetailPagerAdapter(getSupportFragmentManager(), this.nombreEquipo);
+        viewPagerDatosComplementarios.setAdapter(adapter);
 
+        viewPagerDatosComplementarios.addOnPageChangeListener(new
+                TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(new
+                                                   TabLayout.OnTabSelectedListener() {
+                                                       @Override
+                                                       public void onTabSelected(TabLayout.Tab tab) {
+                                                           viewPagerDatosComplementarios.setCurrentItem(tab.getPosition());
+                                                       }
+
+                                                       @Override
+                                                       public void onTabUnselected(TabLayout.Tab tab) {
+
+                                                       }
+
+                                                       @Override
+                                                       public void onTabReselected(TabLayout.Tab tab) {
+
+                                                       }
+
+                                                   });
+
+        tabLayout.setupWithViewPager(viewPagerDatosComplementarios);
+
+        /*for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            tab.setCustomView(adapter.getTabView(this, i));
+        }*/
     }
-
-
 
     /**
      * Metodo para cargar los detalles del equipo en la toolbar
@@ -92,10 +132,10 @@ public class DetalleEquipos extends AppCompatActivity {
             this.recordEquipo = this.ganados + " - " + this.perdidos;
         }
 
-//        tvEquipoEnToolbar.setText(nombreEquipo);
-//        recordEquipoEnToolbar.setText(recordEquipo);
+        tvEquipoEnToolbar.setText(nombreEquipo);
+        recordEquipoEnToolbar.setText(recordEquipo);
 
-        //        int resourceId = getResources().getIdentifier("logo_" + nombreEquipo.toLowerCase() + "_fondo_color_sin_texto", "drawable", "com.proyectofootball.titanes.lfa");
-        //imgLogoEquipoToolbar.setImageResource(resourceId);
+        int resourceId = getResources().getIdentifier("logo_" + nombreEquipo.toLowerCase() + "_fondo_color_sin_texto", "drawable", "com.proyectofootball.titanes.lfa");
+        logoEquipoEnToolbar.setImageResource(resourceId);
     }
 }

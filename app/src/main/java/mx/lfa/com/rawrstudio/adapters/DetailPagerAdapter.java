@@ -38,7 +38,10 @@ public class DetailPagerAdapter extends FragmentPagerAdapter {
                 fragmet.setArguments(args);
                 return fragmet;
             case 1:
-                return RostersFragment.newInstance("1", "Rosters");
+
+                RostersFragment fragment = new RostersFragment();
+                fragment.setArguments(args);
+                return fragment;
             default:
                 return null;
         }

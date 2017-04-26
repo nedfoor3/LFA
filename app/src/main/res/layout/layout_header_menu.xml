@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:src="@drawable/escudo_dinos_blanco" />
+            android:src="@drawable/escudo_dinos" />
 
         <ImageView
             android:layout_width="wrap_content"

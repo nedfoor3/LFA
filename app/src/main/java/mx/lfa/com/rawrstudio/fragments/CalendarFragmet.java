@@ -25,8 +25,6 @@ import mx.lfa.com.rawrstudio.viewHolders.CalendarViewHolder;
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * to handle interaction events.
- * Use the {@link CalendarFragmet#newInstance} factory method to
- * create an instance of this fragment.
  */
 public class CalendarFragmet extends Fragment {
 
@@ -43,24 +41,6 @@ public class CalendarFragmet extends Fragment {
 
     public CalendarFragmet() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CalendarFragmet.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CalendarFragmet newInstance(String param1, String param2) {
-        CalendarFragmet fragment = new CalendarFragmet();
-        Bundle args = new Bundle();
-
-
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override

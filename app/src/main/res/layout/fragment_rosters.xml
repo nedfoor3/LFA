@@ -6,7 +6,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/relative_layout_rosters">
 
         <TableLayout
             android:id="@+id/tableLayout"
@@ -33,13 +34,14 @@
 
         </TableLayout>
 
-
         <android.support.v7.widget.RecyclerView
-                android:id="@+id/roster_list"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent">
+            android:id="@+id/roster_list"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tableLayout">
 
-            </android.support.v7.widget.RecyclerView>
+        </android.support.v7.widget.RecyclerView>
+
 
     </RelativeLayout>
 </FrameLayout>
