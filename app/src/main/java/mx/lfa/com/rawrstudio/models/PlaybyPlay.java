@@ -1,23 +1,11 @@
 package mx.lfa.com.rawrstudio.models;
 
-import java.util.List;
-
 /**
  * Created by Tonatiuh on 23/04/2017.
  */
 
 public class PlaybyPlay {
     private String equipo, oportunidad, jugada;
-
-    public PlaybyPlay() {
-
-    }
-
-    public PlaybyPlay(String equipo, String oportunidad, String jugada) {
-        this.equipo = equipo;
-        this.oportunidad = oportunidad;
-        this.jugada = jugada;
-    }
 
     public String getEquipo() {
         return equipo;

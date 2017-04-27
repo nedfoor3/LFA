@@ -17,10 +17,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import mx.lfa.com.rawrstudio.R;
 import mx.lfa.com.rawrstudio.models.PlaybyPlay;
+import mx.lfa.com.rawrstudio.viewHolders.PbPViewHolder;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.FirebaseDatabase;
@@ -36,17 +35,10 @@ public class TazonPlayByPlay extends AppCompatActivity {
     //private TextView pbpEquipo, pbpOportunidad, pbpJugada;
     private ListView listViewJugadas;
     private List<PlaybyPlay>laBuena;
-    private FirebaseRecyclerAdapter<PlaybyPlay, pBpViewHolder> mFirebaseRecyclerAdapter;
+    private FirebaseRecyclerAdapter<PlaybyPlay, PbPViewHolder> mFirebaseRecyclerAdapter;
     private PlaybyPlay paraTazon;
-
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
-    @BindView(R.id.marcador_mayas)
-    TextView marcadorMayas;
-    @BindView(R.id.marcador_dinos)
-    TextView marcadorDinos;
- //   @BindView(R.id.recycler_play_by_play)
-   // RecyclerView recyclerPlayByPlay;
+    private Toolbar toolbar;
+    private TextView marcadorMayas, marcadorDinos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +47,6 @@ public class TazonPlayByPlay extends AppCompatActivity {
         Window localWindow = this.getWindow();
         localWindow.setStatusBarColor(this.getResources().getColor(R.color.negro));
         setContentView(R.layout.activity_tazon_play_by_play);
-        ButterKnife.bind(this);
 
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -68,6 +59,7 @@ public class TazonPlayByPlay extends AppCompatActivity {
 
     //@Override
     public void setToolbarValues() {
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -77,14 +69,11 @@ public class TazonPlayByPlay extends AppCompatActivity {
 
     public void iniGUI(){
         mRowsTazon = mDatabaseReference.child("2017").child("tazonMexicoII");
-
+        marcadorDinos = (TextView)findViewById(R.id.marcador_dinos);
+        marcadorMayas = (TextView)findViewById(R.id.marcador_mayas);
         mpbpRecyclerList = (RecyclerView)findViewById(R.id.recycler_play_by_play);
         mpbpRecyclerList.setHasFixedSize(true);
-        mpbpRecyclerList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-
-        mLinearLayoutManager = new LinearLayoutManager(this);
-        mLinearLayoutManager.setStackFromEnd(true);
-        mpbpRecyclerList.setLayoutManager(mLinearLayoutManager);
+//        mpbpRecyclerList.setLayoutManager(new RecyclerView.LayoutManager(getApplicationContext()));
 
     }
 
@@ -118,20 +107,20 @@ public class TazonPlayByPlay extends AppCompatActivity {
     }
 
     public void jugadaAjugada(){
-        FirebaseRecyclerAdapter<PlaybyPlay, pBpViewHolder> fireBaseRecyclerAdapter = new FirebaseRecyclerAdapter<PlaybyPlay, pBpViewHolder>(
+        FirebaseRecyclerAdapter<PlaybyPlay, PbPViewHolder> fireBaseRecyclerAdapter = new FirebaseRecyclerAdapter<PlaybyPlay, PbPViewHolder>(
                 PlaybyPlay.class,
                 R.layout.play_by_play_content,
-                pBpViewHolder.class,
+                PbPViewHolder.class,
                 mRowsTazon) {
             @Override
-            protected void populateViewHolder(pBpViewHolder viewHolder, PlaybyPlay model, int position) {
+            protected void populateViewHolder(PbPViewHolder viewHolder, PlaybyPlay model, int position) {
                 viewHolder.setEquipo(model.getEquipo());
                 viewHolder.setOportunidad(model.getOportunidad());
                 viewHolder.setJugada(model.getJugada());
             }
 
             @Override
-            public pBpViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            public PbPViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 return super.onCreateViewHolder(parent, viewType);
             }
 
@@ -141,9 +130,11 @@ public class TazonPlayByPlay extends AppCompatActivity {
             }
         };
 
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        mpbpRecyclerList.setLayoutManager(llm);
         mpbpRecyclerList.setAdapter(fireBaseRecyclerAdapter);
-        LinearLayoutManager llmm = new LinearLayoutManager(this);
-        mpbpRecyclerList.setLayoutManager(llmm);
+
     }
 
 
@@ -166,31 +157,6 @@ public class TazonPlayByPlay extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-    }
-
-    public static class pBpViewHolder extends RecyclerView.ViewHolder {
-        View pbpView;
-
-        public pBpViewHolder(View itemView) {
-            super(itemView);
-            pbpView = itemView;
-        }
-
-        public void setEquipo(String equipo){
-            TextView pbpEquipo = (TextView)pbpView.findViewById(R.id.equipo_play_by_play);
-            pbpEquipo.setText(equipo);
-
-        }
-
-        public void setOportunidad(String oportunidad) {
-            TextView pbpOportunidad = (TextView) pbpView.findViewById(R.id.oportunidad_play_by_play);
-            pbpOportunidad.setText(oportunidad);
-        }
-
-        public void setJugada(String jugada) {
-            TextView pbpJugada = (TextView)pbpView.findViewById(R.id.jugada_play_by_play);
-            pbpJugada.setText(jugada);
-        }
     }
 
 }
