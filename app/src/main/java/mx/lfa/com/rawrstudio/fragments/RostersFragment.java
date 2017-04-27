@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
@@ -30,6 +32,10 @@ import mx.lfa.com.rawrstudio.viewHolders.RosterViewHolder;
  * to handle interaction events.
  */
 public class RostersFragment extends Fragment {
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
+    @BindView(R.id.relative_layout_rosters)
+    RelativeLayout relativeLayoutRosters;
     private String nombreEquipo;
     /*Nombre Equipo Static*/
     private final static String NOMBRE_EQUIPO = "nombreEquipo";
@@ -75,6 +81,8 @@ public class RostersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_rosters, container, false);
         unbinder = ButterKnife.bind(this, view);
+        progressBar.setVisibility(View.VISIBLE);
+
         rosterDBReference = FirebaseDatabase.getInstance().getReference().child("2017/equipo/" + nombreEquipo + "/jugador");
 
         rosterList.setHasFixedSize(true);
@@ -94,7 +102,7 @@ public class RostersFragment extends Fragment {
                 viewHolder.setPlayerPosition(jugador.getPosicion());
                 viewHolder.setPlayerHeight(jugador.getEstatura());
                 viewHolder.setPlayerWeight(jugador.getPeso());
-
+                progressBar.setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -143,5 +151,6 @@ public class RostersFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        unbinder.unbind();
     }
 }

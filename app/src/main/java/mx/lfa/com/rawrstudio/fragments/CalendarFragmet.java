@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +29,8 @@ import mx.lfa.com.rawrstudio.viewHolders.CalendarViewHolder;
  */
 public class CalendarFragmet extends Fragment {
 
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
     private String nombreEquipo;
     /*Nombre Equipo Static*/
     private final static String NOMBRE_EQUIPO = "nombreEquipo";
@@ -48,6 +51,8 @@ public class CalendarFragmet extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             this.nombreEquipo = getArguments().getString(NOMBRE_EQUIPO).toLowerCase();
+
+
         }
     }
 
@@ -57,7 +62,7 @@ public class CalendarFragmet extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_calendar_fragmet, container, false);
         unbinder = ButterKnife.bind(this, view);
-
+        progressBar.setVisibility(View.VISIBLE);
         calendarioDbReference = FirebaseDatabase.getInstance().getReference().child("2017/equipo/" + nombreEquipo + "/partidos");
 
         calendarList.setHasFixedSize(true);
@@ -94,6 +99,8 @@ public class CalendarFragmet extends Fragment {
                 primaryColorVisitante = getResources().getColor(primaryColorVisitante);
                 viewHolder.setBackgroundVisitante(primaryColorVisitante);
                 viewHolder.setHorario(calendario.getFecha().concat(" ").concat(calendario.getHora()));
+
+                progressBar.setVisibility(View.INVISIBLE);
             }
         };
         calendarList.setAdapter(firebaseRecyclerAdapter);

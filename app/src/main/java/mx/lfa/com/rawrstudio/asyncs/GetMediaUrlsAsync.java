@@ -70,6 +70,7 @@ public class GetMediaUrlsAsync extends AsyncTask<Void, Integer, Boolean> {
         }
 
         activity.getPagerGallery().setAdapter(new ImageByUrlAdapter(activity, imageURls));
+        activity.getIndicator().setViewPager(activity.getPagerGallery());
     }
 
 

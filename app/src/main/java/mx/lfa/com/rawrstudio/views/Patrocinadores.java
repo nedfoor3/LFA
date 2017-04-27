@@ -1,16 +1,20 @@
 package mx.lfa.com.rawrstudio.views;
 
 import android.content.pm.ActivityInfo;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
+import android.widget.ProgressBar;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import me.relex.circleindicator.CircleIndicator;
 import mx.lfa.com.rawrstudio.R;
 import mx.lfa.com.rawrstudio.adapters.ViewPagerAdapter;
@@ -19,8 +23,10 @@ public class Patrocinadores extends AppCompatActivity {
     ViewPager viewPagerSponsor;
     PagerAdapter pagerAdapterSponsor;
     int[] imagenes;
-    private static int currentPage= 0;
-    private static int numPages= 0;
+    private static int currentPage = 0;
+    private static int numPages = 0;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,9 @@ public class Patrocinadores extends AppCompatActivity {
         Window localWindow = this.getWindow();
         localWindow.setStatusBarColor(this.getResources().getColor(R.color.negro));
         setContentView(R.layout.activity_patrocinadores);
+        ButterKnife.bind(this);
+
+        progressBar.setVisibility(View.VISIBLE);
         imagenes = new int[]{R.drawable.rawrlogo, R.drawable.ua, R.drawable.sinergia, R.drawable.polaris, R.drawable.cramer,
                 R.drawable.suerox, R.drawable.livyc, R.drawable.amfa, R.drawable.uvm, R.drawable.sportway, R.drawable.musol, R.drawable.dicass,
                 R.drawable.runxpert, R.drawable.sportsclinic};
@@ -80,5 +89,9 @@ public class Patrocinadores extends AppCompatActivity {
                 handler.post(update);
             }
         }, 1000, 1000);
-    };
+
+        progressBar.setVisibility(View.INVISIBLE);
+    }
+
+
 }

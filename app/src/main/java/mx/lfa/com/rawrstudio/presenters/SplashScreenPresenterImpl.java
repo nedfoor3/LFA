@@ -77,7 +77,7 @@ public class SplashScreenPresenterImpl implements SplashScreenPresenter {
         alarmManager = (AlarmManager) activity.getSystemService(ALARM_SERVICE);
 
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent);
+                AlarmManager.INTERVAL_HALF_DAY, pendingIntent);
 
     }
 }

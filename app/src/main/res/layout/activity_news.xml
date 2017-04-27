@@ -34,11 +34,6 @@
                 android:layout_centerVertical="true"
                 android:visibility="gone" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:id="@+id/pruebaimagen" />
-
             <include
                 android:id="@+id/layout_full_article"
                 layout="@layout/layout_full_article"

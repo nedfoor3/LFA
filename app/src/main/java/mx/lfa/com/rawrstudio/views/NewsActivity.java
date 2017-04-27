@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -18,6 +17,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import me.relex.circleindicator.CircleIndicator;
 import mx.lfa.com.rawrstudio.R;
 import mx.lfa.com.rawrstudio.interfaces.Menu.ActionbarView;
 import mx.lfa.com.rawrstudio.interfaces.NewsActivity.NewsActivityPresenter;
@@ -32,30 +32,66 @@ import mx.lfa.com.rawrstudio.utils.Strings;
 public class NewsActivity extends AppCompatActivity implements ActionbarView, NewsActivityView {
 
 
+    /**
+     * The Toolbar.
+     */
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    /**
+     * The Btn try again.
+     */
     @BindView(R.id.btn_try_again)
     Button btnTryAgain;
+    /**
+     * The Layout cant load.
+     */
     @BindView(R.id.layout_cant_load)
     LinearLayout layoutCantLoad;
+    /**
+     * The Progress bar.
+     */
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
-    @BindView(R.id.pruebaimagen)
-    ImageView pruebaimagen;
+    /**
+     * The Pager gallery.
+     */
     @BindView(R.id.pager_gallery)
     ViewPager pagerGallery;
+    /**
+     * The Tv title.
+     */
     @BindView(R.id.tv_title)
     TextView tvTitle;
+    /**
+     * The Tv date.
+     */
     @BindView(R.id.tv_date)
     TextView tvDate;
+    /**
+     * The Tv text.
+     */
     @BindView(R.id.tv_text)
     WebView tvText;
+    /**
+     * The Layout full article.
+     */
     @BindView(R.id.layout_full_article)
     LinearLayout layoutFullArticle;
+    /**
+     * The Main toolbar.
+     */
     @BindView(R.id.main_toolbar)
     LinearLayout mainToolbar;
+    /**
+     * The Drawer layout main.
+     */
     @BindView(R.id.drawer_layout_main)
     DrawerLayout drawerLayoutMain;
+    /**
+     * The Indicator.
+     */
+    @BindView(R.id.indicator)
+    CircleIndicator indicator;
     private ActionbarView actionbarView;
     private NewsActivityPresenter newsActivityPresenter;
     private String title;
@@ -218,4 +254,21 @@ public class NewsActivity extends AppCompatActivity implements ActionbarView, Ne
         return pagerGallery;
     }
 
+    /**
+     * Gets indicator.
+     *
+     * @return the indicator
+     */
+    public CircleIndicator getIndicator() {
+        return indicator;
+    }
+
+    /**
+     * Sets indicator.
+     *
+     * @param indicator the indicator
+     */
+    public void setIndicator(CircleIndicator indicator) {
+        this.indicator = indicator;
+    }
 }

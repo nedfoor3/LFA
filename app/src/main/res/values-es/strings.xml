@@ -41,7 +41,7 @@
 
     <string name="push_notification_title">Liga de Futbol Americano</string>
     <string name="push_notificatio_subtitle_first">Tienes: </string>
-    <string name="push_notificatio_subtitle_second">noticias sin leer.</string>
+    <string name="push_notificatio_subtitle_second">noticia(s) sin leer.</string>
     <string name="try_again">Intenta nuevamente</string>
 
     <!-- preferencias -->

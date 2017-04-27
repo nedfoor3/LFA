@@ -6,6 +6,15 @@
     android:gravity="center"
     tools:context="mx.lfa.com.rawrstudio.views.Patrocinadores">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/pager_patrocinadores"
         android:layout_width="wrap_content"
@@ -15,7 +24,7 @@
         android:id="@+id/indicador_patrocinadores"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:gravity="center_horizontal"
-        android:background="@color/rojo_lfa_transparente"/>
+        android:background="@color/rojo_lfa_transparente"
+        android:gravity="center_horizontal" />
 </RelativeLayout>
 

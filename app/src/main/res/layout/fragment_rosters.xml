@@ -9,6 +9,15 @@
         android:layout_height="match_parent"
         android:id="@+id/relative_layout_rosters">
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+
         <TableLayout
             android:id="@+id/tableLayout"
             android:layout_width="match_parent"
