@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -123,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements ActionbarView, Ma
     @Override
     protected void onRestart() {
         super.onRestart();
-        recreate();
+
     }
 
     /**

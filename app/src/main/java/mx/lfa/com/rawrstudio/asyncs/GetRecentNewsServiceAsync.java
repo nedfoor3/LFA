@@ -9,7 +9,11 @@ import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.util.Log;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import mx.lfa.com.rawrstudio.R;
@@ -29,9 +33,11 @@ public class GetRecentNewsServiceAsync extends AsyncTask<Void, Integer, Boolean>
     private List<News> mListNews;
     private Context context;
     private SharedPreferences sharedPreferences = null;
-    private int lastNewsId;
-
+    private String lastNewsDate;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
     private int newsCounter = 0;
+    Date lastDate;
+    Date newDate;
 
     /**
      * Instantiates a new Get recent news service async.
@@ -42,13 +48,21 @@ public class GetRecentNewsServiceAsync extends AsyncTask<Void, Integer, Boolean>
         this.context = applicationContext;
         this.sharedPreferences = context.getSharedPreferences(Strings.PREFS_NAME, 0);
 
-        lastNewsId = sharedPreferences.getInt(Strings.PREFS_NEWS_ID, 0);
 
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+        newsCounter = 0;
+        lastNewsDate = sharedPreferences.getString(Strings.PREFS_NEWS_LAST_DATE, "");
+        try {
+            lastDate = sdf.parse(lastNewsDate);
+
+            Log.v("Fecha guardada;", "" + lastDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -63,7 +77,7 @@ public class GetRecentNewsServiceAsync extends AsyncTask<Void, Integer, Boolean>
     protected void onPostExecute(Boolean aBoolean) {
         super.onPostExecute(aBoolean);
 
-        if ((lastNewsId != 0) && mListNews.size() > 0 && isNewsAvailable()) {
+        if ((!lastNewsDate.isEmpty()) && mListNews.size() > 0 && isNewsAvailable()) {
             launchPushNotification();
         }
     }
@@ -71,9 +85,22 @@ public class GetRecentNewsServiceAsync extends AsyncTask<Void, Integer, Boolean>
     private boolean isNewsAvailable() {
 
         for (int i = 0; i < mListNews.size(); i++) {
-            if (lastNewsId < mListNews.get(i).getId()) {
-                newsCounter++;
+
+            try {
+                newDate = sdf.parse(mListNews.get(i).getDate());
+
+                if (lastDate.before(newDate)) {
+                    newsCounter++;
+                    Log.v("ES: ", "mayor");
+                } else {
+                    Log.v("ES:", "Menor");
+                }
+
+
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
+
         }
 
         return newsCounter > 0 ? true : false;

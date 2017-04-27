@@ -224,7 +224,7 @@ public class NewsActivity extends AppCompatActivity implements ActionbarView, Ne
      */
     @Override
     public void setDate(String customDate) {
-
+        tvDate.setText(customDate);
     }
 
     /**

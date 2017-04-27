@@ -3,7 +3,6 @@ package mx.lfa.com.rawrstudio.presenters;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
@@ -33,10 +32,13 @@ public class SplashScreenPresenterImpl implements SplashScreenPresenter {
         this.activity = activity;
 
 
-        this.sharedPreferences = activity.getSharedPreferences(Strings.PREFS_NAME, Context.MODE_PRIVATE);
-
+        this.sharedPreferences = activity.getSharedPreferences(Strings.PREFS_NAME, 0);
         boolean flag = isFirstLaunch();
-        startAlertAtParticularTime();
+
+        if (flag) {
+            startAlertAtParticularTime();
+        }
+
     }
 
     /**
@@ -49,9 +51,11 @@ public class SplashScreenPresenterImpl implements SplashScreenPresenter {
         
         if (sharedPreferences.getBoolean(FIRST_RUN, true)){
             sharedPreferences.edit().putBoolean(FIRST_RUN, false).commit();
+
             return true;
         }
         else {
+
             return false;
         }
 
@@ -77,7 +81,7 @@ public class SplashScreenPresenterImpl implements SplashScreenPresenter {
         alarmManager = (AlarmManager) activity.getSystemService(ALARM_SERVICE);
 
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                AlarmManager.INTERVAL_HALF_DAY, pendingIntent);
+                AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent);
 
     }
 }

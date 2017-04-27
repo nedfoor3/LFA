@@ -24,6 +24,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NewsActivityInteractorImpl implements NewsActivityInteractor {
 
     private static final int HTTP_SUCCESS_RESPONCE = 200;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+    SimpleDateFormat dt1 = new SimpleDateFormat("yyyyy-mm-dd");
 
     private Context context;
 
@@ -39,19 +41,21 @@ public class NewsActivityInteractorImpl implements NewsActivityInteractor {
     @Override
     public String getCustomDate(String originalDate) {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
-        String dateInString = "31-08-1982 10:20:56";
+
         Date date = null;
+        String newstring = "";
         try {
             date = sdf.parse(originalDate);
+            newstring = new SimpleDateFormat("dd-mm-yyyy").format(date);
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        System.out.println(date); //Tue Aug 31 10:20:56 SGT 1982
+
 
         //Toast.makeText(context, "fecha:" + date.toString(), Toast.LENGTH_SHORT).show();
         //Log.v("hola", date.toString());
-        return "";
+        return newstring;
 
     }
 

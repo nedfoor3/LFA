@@ -29,7 +29,7 @@ public class MainActivityInteractorImpl implements MainActivityInteractor {
     public MainActivityInteractorImpl(Context cont) {
         this.context = cont;
 
-        this.sharedPreferences = cont.getSharedPreferences(Strings.PREFS_NAME, 0);
+        this.sharedPreferences = cont.getSharedPreferences(Strings.PREFS_NAME, cont.MODE_PRIVATE);
     }
 
     /**
@@ -57,7 +57,7 @@ public class MainActivityInteractorImpl implements MainActivityInteractor {
                 Call<List<News>> mCall = call.clone();
                 mListNews = mCall.execute().body();
 
-                sharedPreferences.edit().putInt(Strings.PREFS_NEWS_ID, mListNews.get(0).getId()).commit();
+                sharedPreferences.edit().putString(Strings.PREFS_NEWS_LAST_DATE, mListNews.get(0).getDate()).commit();
 
             } else {
                 mListNews = null;

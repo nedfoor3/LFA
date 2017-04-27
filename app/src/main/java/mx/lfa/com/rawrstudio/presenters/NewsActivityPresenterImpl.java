@@ -17,6 +17,7 @@ public class NewsActivityPresenterImpl implements NewsActivityPresenter {
     private int idMedia;
     private String mUrlFeature;
     private NewsActivityInteractor newsActivityInteractor;
+    private String dateCustom;
 
     /**
      * Instantiates a new News activity presenter.
@@ -32,7 +33,7 @@ public class NewsActivityPresenterImpl implements NewsActivityPresenter {
 
 
         try {
-            newsActivityInteractor.getCustomDate(date);
+            dateCustom = newsActivityInteractor.getCustomDate(date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -50,6 +51,7 @@ public class NewsActivityPresenterImpl implements NewsActivityPresenter {
             view.showProgress();
             view.setTitle();
             view.setText();
+            view.setDate(dateCustom);
             view.showArticle();
             view.hideProgress();
 

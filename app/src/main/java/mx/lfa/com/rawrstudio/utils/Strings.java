@@ -10,7 +10,7 @@ public class Strings {
 
     public static final String PREFS_NAME = "mx.lfa";
 
-    public static final String PREFS_NEWS_ID = "newsId";
+    public static final String PREFS_NEWS_LAST_DATE = "newsDate";
 
     public static final String INTENT_NEWS_TITLE = "title";
 
