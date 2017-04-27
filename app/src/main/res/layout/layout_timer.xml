@@ -140,10 +140,10 @@
             android:backgroundTint="@color/colorPrimaryTransparent"
             android:text="Tazón México"
             android:textColor="@color/blanco"
-            android:textStyle="bold"></Button>
+            android:textStyle="bold"/>
     </FrameLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/gris"></RelativeLayout>
+        android:background="@color/gris"/>
 </LinearLayout>
