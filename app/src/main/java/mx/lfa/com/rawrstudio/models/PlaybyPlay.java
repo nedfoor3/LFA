@@ -5,15 +5,16 @@ package mx.lfa.com.rawrstudio.models;
  */
 
 public class PlaybyPlay {
-    private String equipo, oportunidad, jugada;
+    private String equipo, oportunidad, bolaen, jugada;
 
     public PlaybyPlay() {
 
     }
 
-    public PlaybyPlay(String equipo, String oportunidad, String jugada) {
+    public PlaybyPlay(String equipo, String oportunidad, String bolaen, String jugada) {
         this.equipo = equipo;
         this.oportunidad = oportunidad;
+        this.bolaen = bolaen;
         this.jugada = jugada;
     }
 
@@ -31,6 +32,14 @@ public class PlaybyPlay {
 
     public void setOportunidad(String oportunidad) {
         this.oportunidad = oportunidad;
+    }
+
+    public String getBolaen() {
+        return bolaen;
+    }
+
+    public void setBolaen(String bolaen) {
+        this.bolaen = bolaen;
     }
 
     public String getJugada() {

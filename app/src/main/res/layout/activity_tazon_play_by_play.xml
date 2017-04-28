@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="mx.lfa.com.rawrstudio.views.TazonPlayByPlay">
-    <include layout="@layout/layout_toolbar" />
+    <include layout="@layout/layout_toolbar_tazon" />
 
     <LinearLayout
         android:layout_width="match_parent"

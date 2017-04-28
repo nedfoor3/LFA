@@ -29,8 +29,14 @@ public class PbPViewHolder extends RecyclerView.ViewHolder {
         pbpOportunidad.setText(oportunidad);
     }
 
+    public void setBolaen(String lugar) {
+        TextView pbpSpot = (TextView)pbpView.findViewById(R.id.spot_play_by_play);
+        pbpSpot.setText(lugar);
+    }
+
     public void setJugada(String jugada) {
         TextView pbpJugada = (TextView)pbpView.findViewById(R.id.jugada_play_by_play);
         pbpJugada.setText(jugada);
     }
+
 }

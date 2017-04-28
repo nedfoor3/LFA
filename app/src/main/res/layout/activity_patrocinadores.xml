@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     tools:context="mx.lfa.com.rawrstudio.views.Patrocinadores">
+    <include layout="@layout/layout_toolbar"></include>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -25,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/rojo_lfa_transparente"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:layout_marginTop="?attr/actionBarSize"/>
 </RelativeLayout>
 

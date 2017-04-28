@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.Window;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -30,6 +31,7 @@ public class TazonPlayByPlay extends AppCompatActivity {
     private Toolbar toolbar;
     private TextView marcadorMayas, marcadorDinos;
     private RecyclerView playByPlayRecycler;
+    private LinearLayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,19 +54,22 @@ public class TazonPlayByPlay extends AppCompatActivity {
     public void setToolbarValues() {
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
 
     }
 
     public void iniGUI(){
-        mRowsTazon = mDatabaseReference.child("2017").child("tazonMexicoII");
+        mRowsTazon = mDatabaseReference.child("2017").child("tazonMexicoII").child("PBP");
         marcadorDinos = (TextView)findViewById(R.id.marcador_dinos);
         marcadorMayas = (TextView)findViewById(R.id.marcador_mayas);
         playByPlayRecycler = (RecyclerView)findViewById(R.id.recycler_play_by_play);
+        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager.setReverseLayout(true);
+        mLayoutManager.setStackFromEnd(true);
         playByPlayRecycler.setHasFixedSize(true);
-        playByPlayRecycler.setLayoutManager(new LinearLayoutManager(this));
+        playByPlayRecycler.setLayoutManager(mLayoutManager);
 
     }
 
@@ -108,11 +113,13 @@ public class TazonPlayByPlay extends AppCompatActivity {
             protected void populateViewHolder(PbPViewHolder viewHolder, PlaybyPlay model, int position) {
                 viewHolder.setEquipo(model.getEquipo());
                 viewHolder.setOportunidad(model.getOportunidad());
+                viewHolder.setBolaen(model.getBolaen());
                 viewHolder.setJugada(model.getJugada());
 
             }
         };
-      //  playByPlayRecycler.setAdapter(firebaseRecyclerAdapter);
+        playByPlayRecycler.setAdapter(firebaseRecyclerAdapter);
+
 
     }
 
@@ -136,6 +143,18 @@ public class TazonPlayByPlay extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                //drawerLayoutMain.openDrawer(GravityCompat.START);
+                finish();
+                return true;
+            //...
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

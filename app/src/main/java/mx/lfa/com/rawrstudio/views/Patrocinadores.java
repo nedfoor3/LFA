@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ProgressBar;
@@ -27,6 +29,7 @@ public class Patrocinadores extends AppCompatActivity {
     private static int numPages = 0;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class Patrocinadores extends AppCompatActivity {
         localWindow.setStatusBarColor(this.getResources().getColor(R.color.negro));
         setContentView(R.layout.activity_patrocinadores);
         ButterKnife.bind(this);
+        setToolbarValues();
 
         progressBar.setVisibility(View.VISIBLE);
         imagenes = new int[]{R.drawable.rawrlogo, R.drawable.ua, R.drawable.sinergia, R.drawable.polaris, R.drawable.cramer,
@@ -93,5 +97,27 @@ public class Patrocinadores extends AppCompatActivity {
         progressBar.setVisibility(View.INVISIBLE);
     }
 
+    //@Override
+    public void setToolbarValues() {
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
+
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                //drawerLayoutMain.openDrawer(GravityCompat.START);
+                finish();
+                return true;
+            //...
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

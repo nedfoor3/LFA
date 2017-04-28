@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout_main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    tools:context="mx.lfa.com.rawrstudio.views.Equipos">
 
-    <include layout="@layout/layout_toolbar"></include>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        android:layout_margin="6dp"
         android:layout_below="@+id/toolbar">
+    <include layout="@layout/layout_toolbar"/>
         <ImageButton
             android:id="@+id/header_condors"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/head_condors"
-            android:layout_marginBottom="6dp"/>
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"/>
         <ImageButton
             android:id="@+id/header_dinos"
             android:layout_width="wrap_content"
@@ -50,4 +53,15 @@
             android:layout_height="50dp"
             android:background="@drawable/head_raptors"/>
     </LinearLayout>
-</RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/lateral_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:clickable="true"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/layout_header_menu"
+        app:menu="@menu/menu_nav" />
+
+</android.support.v4.widget.DrawerLayout>

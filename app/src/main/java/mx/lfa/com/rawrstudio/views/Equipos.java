@@ -3,8 +3,12 @@ package mx.lfa.com.rawrstudio.views;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -16,8 +20,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import mx.lfa.com.rawrstudio.R;
+import mx.lfa.com.rawrstudio.interfaces.Menu.ActionbarView;
+import mx.lfa.com.rawrstudio.presenters.MenuPresenterImpl;
 
-public class Equipos extends AppCompatActivity {
+public class Equipos extends AppCompatActivity implements ActionbarView{
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -33,6 +39,11 @@ public class Equipos extends AppCompatActivity {
     ImageButton headerMayas;
     @BindView(R.id.header_raptors)
     ImageButton headerRaptors;
+    @BindView(R.id.drawer_layout_main)
+    DrawerLayout drawerLayoutMain;
+    @BindView(R.id.lateral_menu)
+    NavigationView lateralMenu;
+    private MenuPresenterImpl mMenuPresenter;
     private DatabaseReference mDadabaseReference;
 
     @Override
@@ -44,6 +55,11 @@ public class Equipos extends AppCompatActivity {
         localWindow.setStatusBarColor(this.getResources().getColor(R.color.negro));
         setContentView(R.layout.activity_equipos);
         ButterKnife.bind(this);
+        // Toolbar and Menu
+        ActionbarView actionbarView = this;
+        actionbarView.setToolbarValues();
+        mMenuPresenter = new MenuPresenterImpl(this);
+        mMenuPresenter.onClickOptionItemMenu(lateralMenu, drawerLayoutMain);
 
         //iniGUIEquipos();
         iniListenersEquipos();
@@ -133,5 +149,24 @@ public class Equipos extends AppCompatActivity {
                 startActivity(intentCondors);
             }
         });
+    }
+
+    @Override
+    public void setToolbarValues() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                drawerLayoutMain.openDrawer(GravityCompat.START);
+                return true;
+            //...
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
