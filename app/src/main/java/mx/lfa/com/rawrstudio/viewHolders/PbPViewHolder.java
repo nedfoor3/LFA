@@ -15,7 +15,7 @@ public class PbPViewHolder extends RecyclerView.ViewHolder {
 
     public PbPViewHolder(View itemView) {
         super(itemView);
-        this.pbpView = itemView;
+        pbpView = itemView;
     }
 
     public void setEquipo(String equipo){
